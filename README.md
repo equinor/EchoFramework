@@ -1,2 +1,3 @@
 # EchoFramework
-Modules and components for EchoWeb, utelising EchoCore
+
+Modules and components for EchoWeb, utilizing EchoCore
