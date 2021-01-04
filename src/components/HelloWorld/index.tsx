@@ -2,7 +2,7 @@ import React from "react";
 
 const HelloWorld: React.FC = () => (
     <>
-        <h1>Hello World</h1>
+        <h1>Echo FrameWork</h1>
 
         <hr />
 
