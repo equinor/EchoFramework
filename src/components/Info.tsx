@@ -1,10 +1,8 @@
 import React from "react";
 
-const HelloWorld: React.FC = () => (
+const Info: React.FC = () => (
     <>
         <h1>Echo FrameWork</h1>
-
-        <hr />
 
         <h3>Environmental variables:</h3>
         <p>
@@ -19,4 +17,4 @@ const HelloWorld: React.FC = () => (
     </>
 );
 
-export default HelloWorld;
+export default Info;
