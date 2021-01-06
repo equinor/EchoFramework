@@ -1,5 +1,5 @@
-import Info from "components/Info";
-import React from "react";
+import Info from 'components/Info';
+import React from 'react';
 
 const App: React.FC = () => <Info />;
 

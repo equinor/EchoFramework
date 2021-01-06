@@ -27,5 +27,7 @@
   "include": [
     "./src",
     "./webpack.config.ts"
-  ]
+  ],
+  "plugins": [{ "name": "typescript-plugin-css-modules" }]
+ 
 }

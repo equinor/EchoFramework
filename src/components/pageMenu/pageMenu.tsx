@@ -1,10 +1,8 @@
 import React from 'react';
 
-const Info: React.FC = () => (
+const PageMenu: React.FC = () => (
     <>
-        <h1>Echo FrameWork</h1>
-
-        <h3>Environmental variables:</h3>
+        <h3>PageMenu</h3>
         <p>
             process.env.PRODUCTION: <b>{process.env.PRODUCTION.toString()}</b>
         </p>
@@ -17,4 +15,4 @@ const Info: React.FC = () => (
     </>
 );
 
-export default Info;
+export default PageMenu;
