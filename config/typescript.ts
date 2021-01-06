@@ -1,7 +1,7 @@
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import threadLoader from 'thread-loader';
 
-threadLoader.warmup({}, ['ts-loader', 'style-loader', 'css-loader', 'less-loader']);
+threadLoader.warmup({}, ['ts-loader', 'style-loader', 'css-loader']);
 
 module.exports = (rootDir) => ({
     module: {

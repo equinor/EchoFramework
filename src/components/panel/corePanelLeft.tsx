@@ -9,6 +9,7 @@ const CorePanelLeft: React.FC = () => {
 
     useEffect(() => {
         setPanels(modulePanels);
+        console.log(modulePanels);
     }, [modulePanels]);
 
     const PanelContent = panels.find((panel) => panel.key === activePanel)?.component;

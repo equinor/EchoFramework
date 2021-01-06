@@ -3,7 +3,7 @@ const svg = {
         rules: [
             {
                 test: /\.svg$/,
-                use: { loader: 'svg-inline-loader' }
+                use: ['@svgr/webpack', 'url-loader']
             }
         ]
     }

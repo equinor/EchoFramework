@@ -1,32 +1,27 @@
-const cssModuleRegex = /\.module\.css$/;
-const cssRegex = /\.css$/;
-
 const styles = {
     module: {
         rules: [
             {
-                test: cssRegex,
-                use: ['style-loader', 'css-loader'],
-                exclude: /\.module\.css$/
-            },
-            {
-                test: cssModuleRegex,
+                test: /\.css$/,
                 use: [
+                    'style-loader',
                     {
                         loader: 'css-loader',
                         options: {
+                            importLoaders: 1,
                             modules: {
-                                auto: true
+                                mode: 'local',
+                                localIdentName: 'echo-[folder]__[local]-[hash:base64:5]'
                             }
                         }
                     }
-                    // {
-                    //     loader: 'style-loader'
-                    // },
-                    // {
-                    //     loader: 'css-modules-typescript-loader'
-                    // }
-                ]
+                ],
+                include: /\.module\.css$/
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+                exclude: /\.module\.css$/
             }
         ]
     }
