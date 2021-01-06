@@ -1,9 +1,6 @@
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import threadLoader from 'thread-loader';
 
-threadLoader.warmup({}, ['ts-loader', 'style-loader', 'css-loader']);
-
-module.exports = (rootDir) => ({
+const typescript = {
     module: {
         rules: [
             {
@@ -15,20 +12,26 @@ module.exports = (rootDir) => ({
                         loader: 'ts-loader',
                         options: {
                             transpileOnly: true,
-                            happyPackMode: true,
-                            compilerOptions: {
-                                rootDir
-                            }
+                            happyPackMode: true
                         }
                     }
-                ]
+                ],
+                exclude: /dist/
             }
         ]
     },
 
-    plugins: [new ForkTsCheckerWebpackPlugin()],
+    plugins: [
+        new ForkTsCheckerWebpackPlugin({
+            eslint: {
+                files: './src/**/*.{ts,tsx,js,jsx}'
+            }
+        })
+    ],
 
     stats: {
         warningsFilter: /export .* was not found in/
     }
-});
+};
+
+export default typescript;
