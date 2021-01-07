@@ -24,6 +24,7 @@
     "@typescript-eslint/parser": "4.11.1",
     "babel-loader": "^8.2.2",
     "cache-loader": "^4.1.0",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
     "eslint": "7.17.0",
     "eslint-config-prettier": "7.1.0",
@@ -49,6 +50,7 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "@equinor/echo-framework": "0.0.8",
     "@equinor/echo-core": "0.0.4",
     "@equinor/eds-core-react": "^0.8.3",
     "react": "^17.0.0",

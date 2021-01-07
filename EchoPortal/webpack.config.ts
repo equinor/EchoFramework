@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import webpack, { Configuration } from 'webpack';
@@ -14,12 +16,34 @@ const config = merge<Configuration>(resolve, typescript, styles, svg, {
     ...(env.production || !env.development ? {} : { devtool: 'eval-source-map' }),
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'build.js'
+        filename: '[name].[contenthash].js'
+    },
+    optimization: {
+        runtimeChunk: 'single',
+        splitChunks: {
+            chunks: 'all'
+            //   maxInitialRequests: Infinity,
+            //   minSize: 0,
+            //   cacheGroups: {
+            //     vendor: {
+            //       test: /[\\/]node_modules[\\/]/,
+            //       name(module) {
+            //         // get the name. E.g. node_modules/packageName/not/this/part.js
+            //         // or node_modules/packageName
+            //         const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+            //         // npm package names are URL-safe, but some servers don't like @ symbols
+            //         return `npm.${packageName.replace('@', '')}`;
+            //       },
+            //     },
+            //   },
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html'
         }),
+        new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
             'process.env.PRODUCTION': env.production || !env.development,
             'process.env.NAME': JSON.stringify(require('./package.json').name),
@@ -27,5 +51,5 @@ const config = merge<Configuration>(resolve, typescript, styles, svg, {
         })
     ]
 });
-// console.log(JSON.stringify(config, null, 1));
+
 export default config;

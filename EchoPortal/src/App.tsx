@@ -1,6 +1,6 @@
-import Info from 'components/Info';
+import { EchoContent } from '@equinor/echo-framework';
+import Info from 'components/info';
 import React from 'react';
-import { EchoContent } from './coreApplication';
 
 const App: React.FC = () => {
     return (

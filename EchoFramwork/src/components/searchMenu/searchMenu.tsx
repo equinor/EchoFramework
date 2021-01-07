@@ -1,11 +1,10 @@
 import React from 'react';
-import style from './pageMenu.module.css';
-
-const PageMenu: React.FC = () => (
+import style from './searchMenu.module.css';
+const SearchMenu: React.FC = () => (
     <div className={style.panel}>
-        <h3>PageMenu</h3>
+        <h3>SearchMenu</h3>
         <p>
-            process.env.PRODUCTION: <b>{process.env.PRODUCTION.toString()}</b>
+            process.env.PRODUCTION: <b>{process.env.PRODUCTION?.toString()}</b>
         </p>
         <p>
             process.env.NAME: <b>{process.env.NAME}</b>
@@ -16,4 +15,4 @@ const PageMenu: React.FC = () => (
     </div>
 );
 
-export default PageMenu;
+export default SearchMenu;

@@ -6,7 +6,4 @@
     "editor.formatOnSave": true,
     "appService.defaultWebAppToDeploy": "None",
     
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
 }
