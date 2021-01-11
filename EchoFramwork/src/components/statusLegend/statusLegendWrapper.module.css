@@ -1,0 +1,67 @@
+.wrapper,
+.wrapperFaded {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 7px 14px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 550px;
+    max-width: 550px;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper {
+    background: white;
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.wrapperFaded {
+    background: rgba(157, 157, 157, 0.05);
+    box-shadow: none;
+}
+
+.dropdownContainer {
+    flex-wrap: wrap;
+    margin-right: var(--small);
+}
+
+.textContainer {
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.dropdownContainer > div > div {
+    min-width: 150px;
+}
+
+/* This needs to be fixed but now should be commented out.*/
+/* @media only screen and (min-width: 1095px) {
+    .wrapper,
+    .wrapperFaded {
+        width: 550px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .wrapper,
+    .wrapperFaded {
+        width: 75vw;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .wrapper,
+    .wrapperFaded {
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .wrapper,
+    .wrapperFaded {
+        width: 100%;
+    }
+} */

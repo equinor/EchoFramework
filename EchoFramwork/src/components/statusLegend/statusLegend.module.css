@@ -1,0 +1,17 @@
+.statusLegendItem {
+    color: white !important;
+    margin-right: 5px !important;
+    margin-top: 8px !important;
+    padding-left: 8px !important;
+}
+
+.statusLegendItem:last-child {
+    margin-right: 0px;
+}
+
+.showLess {
+    margin-top: 3px !important;
+}
+.showMoreButton {
+    margin-top: 3px !important;
+}
