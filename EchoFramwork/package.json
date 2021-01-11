@@ -1,6 +1,6 @@
 {
     "name": "@equinor/echo-framework",
-    "version": "0.0.8",
+    "version": "0.0.1",
     "description": "Modules and components for EchoWeb, utilizing EchoCore",
     "main": "dist/index.js",
     "types": "dist/types/index.d.ts",
@@ -10,7 +10,7 @@
     "license": "MIT",
     "private": false,
     "scripts": {
-        "build": "rollup -c && tsc",
+        "build": "rollup -c",
         "start": "rollup -c -w ",
         "publish": "npm publish --access public",
         "patch": "npm version patch",
@@ -31,6 +31,7 @@
         "@equinor/echo-core": "0.0.4",
         "@equinor/eds-core-react": "^0.8.3",
         "@modular-css/rollup": "^25.8.2",
+        "@rollup/plugin-node-resolve": "^11.0.1",
         "@rollup/plugin-typescript": "^8.0.0",
         "@rollup/plugin-url": "^6.0.0",
         "@svgr/rollup": "^5.5.0",

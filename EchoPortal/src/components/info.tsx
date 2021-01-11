@@ -6,6 +6,7 @@ const Info: React.FC = () => {
     useInitial(() => {
         EchoCore.registerPanels();
     });
+
     return (
         <div className={style.panel}>
             <h1>Echo Framework Demo</h1>
