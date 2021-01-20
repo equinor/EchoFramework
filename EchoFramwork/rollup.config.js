@@ -13,7 +13,7 @@ import pkg from './package.json';
 const extensions = ['.jsx', '.js', '.tsx', '.ts'];
 export default [
     {
-         preserveModules: true,
+        preserveModules: true,
         input: pkg.source,
         output: {
             dir: "dist/",
@@ -21,17 +21,23 @@ export default [
             format: 'cjs',
             exports: 'named'
         },
-        external: ['react', 'react-dom', '@equinor/echo-core', '@equinor/eds-core-react', 'styled-components' ],
+        external: ['react', 'react-dom', '@equinor/echo-core', '@equinor/eds-core-react', 'styled-components'],
         plugins: [
             del({ targets: 'dist/*', runOnce: true }),
             typescript(),
             typescriptPaths(),
             postcss({
-                // plugins: [autoprefixer()],
-                 //sourceMap: true,
-                 //extract: true,
+                modules: true,
                 minimize: true,
+                exclude: 'src/theme/theme.css',
             }),
+            postcss({
+                extract: true,
+                modules: false,
+                minimize: true,
+                include: 'src/theme/theme.css',
+                exclude: ' /\.module\.css$/'
+              }),
             babel({
                 babelrc: false,
                 presets: [['@babel/preset-env', { modules: false }], ['@babel/preset-react']],
@@ -52,7 +58,16 @@ export default [
                 format: 'es'
             }
         ],
-        plugins: [dt()]
+        plugins: [
+            dt(),             
+            postcss({
+                extract: true,
+                modules: false,
+                minimize: true,
+                include: 'src/theme/theme.css',
+                exclude: ' /\.module\.css$/'
+              })
+            ]
     },
 
 ];
