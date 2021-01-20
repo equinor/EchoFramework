@@ -1,6 +1,6 @@
 {
     "name": "@equinor/echo-framework",
-    "version": "0.0.1",
+    "version": "0.0.16",
     "description": "Modules and components for EchoWeb, utilizing EchoCore",
     "main": "dist/index.js",
     "types": "dist/types/index.d.ts",
@@ -12,7 +12,7 @@
     "scripts": {
         "build": "rollup -c",
         "start": "rollup -c -w ",
-        "publish": "npm publish --access public",
+        "publish-pk": "npm publish --access public",
         "patch": "npm version patch",
         "major": "npm version major",
         "minor": "npm version minor"
