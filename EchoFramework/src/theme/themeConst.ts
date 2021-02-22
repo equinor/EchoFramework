@@ -37,7 +37,7 @@ export const themeConst = {
     ok: '#23ef2a',
     os: '#adaead',
     pa: '#f94693',
-    pb: '#fefc07',
+    pb: '#ffdd00',
     unknown: '#525252',
 
     /*Echopedia Procosys Filters*/
