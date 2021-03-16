@@ -1,9 +1,10 @@
-name: Build and Publish
+name: Build
 
 on:
-    release:
-        types:
-            - published
+    pull_request:
+        branches:
+            - dev
+
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -17,13 +18,8 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-            - name: npm install, build
+            - name: npm install and build
               run: |
+                  cd ./EchoFramework
                   npm install
                   npm run build
-            - name: npm publish
-              run: |
-                  npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-                  npm run publish-pk
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
