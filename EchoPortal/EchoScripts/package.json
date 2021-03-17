@@ -1,0 +1,14 @@
+{
+  "name": "@equinor/echo-scripts",
+  "version": "0.1.5",
+  "description": "Scripts used in echo framework",
+  "types": "./lib/echo-scripts.d.ts",
+  "scripts": {
+    "echo-publish": "npm publish --access public"
+  },
+  "author": "Echo Core",
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^17.0.1"
+  }
+}
