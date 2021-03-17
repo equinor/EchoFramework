@@ -28,7 +28,7 @@ const PlantSelector: React.FC<PlantSelectorProps> = ({ styleClass, isDisabled }:
     const handlePlantSelected = async (text: string): Promise<void> => {
         const newSelectedPlant = plants.find((plant: Plant) => plant.description === text);
         if (newSelectedPlant) {
-            eventHub.emit(EchoEvents.ChangePlant, newSelectedPlant);
+            eventHub.emit(EchoEvents.PlantChanged, newSelectedPlant);
         }
     };
 
