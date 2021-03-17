@@ -24,16 +24,18 @@
     "peerDependencies": {
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
-        "@equinor/echo-core": "0.0.4",
-        "@equinor/eds-core-react": "^0.8.3",
+        "@equinor/echo-core": "0.1.22",
+        "@equinor/echo-components": "0.0.10",
+        "@equinor/eds-core-react": "^0.8.5",
         "styled-components": "^5.2.1"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
         "@babel/preset-react": "^7.12.10",
-        "@equinor/echo-core": "0.0.4",
-        "@equinor/eds-core-react": "^0.8.3",
+        "@equinor/echo-core": "0.1.22",
+        "@equinor/echo-components": "0.0.10",
+        "@equinor/eds-core-react": "^0.8.5",
         "@modular-css/rollup": "^25.8.2",
         "@rollup/plugin-node-resolve": "^11.0.1",
         "@rollup/plugin-typescript": "^8.0.0",
