@@ -34,11 +34,11 @@ export const themeConst = {
     default: '#dcdcdc',
 
     /*Echopedia Procosys StatusCodes*/
-    ok: '#4bb748',
-    os: '#52c0ff',
-    pa: '#fbca36',
-    pb: '#ff9200',
-    unknown: '#87929a',
+    ok: '#23ef2a',
+    os: '#adaead',
+    pa: '#f94693',
+    pb: '#ffdd00',
+    unknown: '#525252',
 
     /*Echopedia Procosys Filters*/
     priorityHigh: '#FF1243',
