@@ -15,7 +15,7 @@
       "noImplicitAny": false ,
       "noEmit": true,
       "jsx": "react",
-      "types": ["@equinor/echo-scripts"],
+      "types": ["@equinor/echo-scripts", "@types/jest"],
   },
   "include": [    
     "src"
