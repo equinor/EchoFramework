@@ -8,7 +8,7 @@
   },
   "author": "Echo Core",
   "license": "MIT",
-  "devDependencies": {
+  "peerDependencies": {
     "react": "^17.0.1"
   }
 }
