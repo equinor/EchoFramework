@@ -4,11 +4,19 @@ import { StarProgress } from '@equinor/eds-core-react';
 import React, { useState } from 'react';
 
 interface PlantSelectorProps {
-    styleClass?: 'compact' | 'default';
+    variant?: 'compact' | 'default';
     isDisabled?: boolean;
 }
 
-const PlantSelector: React.FC<PlantSelectorProps> = ({ styleClass, isDisabled }: PlantSelectorProps) => {
+/**
+ * Dropdown component for displaying a searchable plant selector.
+ * @param {PlantSelectorProps} {
+ * variant: The style type for the dropdown component. Either default or compact.
+ * isDisabled: Flag which decides whether the dropdown should be disabled or not.
+ * }
+ * @return {*}
+ */
+const PlantSelector: React.FC<PlantSelectorProps> = ({ variant, isDisabled }: PlantSelectorProps) => {
     const plants = usePlants();
     const { instCode: selectedPlantCode, plantName: selectedPlant } = usePlantSettings();
     const dropdownData = plants.map((plant: Plant) => plant.description);
@@ -62,7 +70,7 @@ const PlantSelector: React.FC<PlantSelectorProps> = ({ styleClass, isDisabled }:
             setSelected={handlePlantSelected}
             isDisabled={isDisabled || !navigator.onLine}
             disabledText="Disabled while syncing or loading data"
-            styleClass={styleClass ? styleClass : 'default'}
+            variant={variant ? variant : 'default'}
         />
     );
 };
