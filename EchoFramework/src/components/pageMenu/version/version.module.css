@@ -1,0 +1,11 @@
+.versionContainer {
+    color: var(--echoText);
+    text-align: center;
+    min-height: 50px;
+}
+
+@media only screen and (max-width: 1367px) {
+    .versionContainer {
+        margin-bottom: 15px;
+    }
+}

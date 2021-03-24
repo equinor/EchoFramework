@@ -1,0 +1,13 @@
+.accordionIconLeft {
+    margin-right: 28px;
+}
+
+.appMenuAccordionItemHeader {
+    padding: 12px !important;
+    height: 60px !important;
+}
+
+.accordionSubHeader {
+    font-size: 11px;
+    color: var(--echoText);
+}
