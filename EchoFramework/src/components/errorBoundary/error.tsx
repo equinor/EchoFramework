@@ -9,7 +9,7 @@ Icon.add({ error_filled });
 const Error: React.FC = () => {
     return (
         <div className={style.container}>
-            <Icon className={style.icon} color={themeConst.darkEquiRed} name={'error_filled'} />
+            <Icon color={themeConst.darkEquiRed} name="error_filled" size={48} />
             <h1>Hmm, something went wrong..</h1>
             <p>An unexpected error has occurred, please try again.</p>
             <Button variant="outlined">Read more</Button>
