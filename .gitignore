@@ -1,5 +1,2 @@
-EchoFramework/node_modules/
-EchoFramework/dist/
-
-EchoPortal/node_modules/
-EchoPortal/dist/
+node_modules
+dist

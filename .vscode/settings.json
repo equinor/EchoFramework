@@ -5,5 +5,8 @@
     },
     "editor.formatOnSave": true,
     "appService.defaultWebAppToDeploy": "None",
-    
+    "cSpell.words": [
+        "equinor"
+    ]
+   
 }
