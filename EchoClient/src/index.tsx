@@ -11,6 +11,8 @@ const Echo: React.FC = (): JSX.Element => {
     rightPanel: mainMenu,
   });
 
+  // const isAuthenticated = true;
+
   return (
     <>
       {isAuthenticated && (
