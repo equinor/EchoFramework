@@ -4,7 +4,7 @@ const typescript = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.(ts|tsx)?$/,
                 use: [
                     'cache-loader',
                     'thread-loader',
@@ -17,6 +17,19 @@ const typescript = {
                     }
                 ],
                 exclude: /dist/
+            },
+            {
+                test: /.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            cacheDirectory: true,
+                            plugins: ['@babel/plugin-transform-runtime']
+                        }
+                    }
+                ]
             }
         ]
     },

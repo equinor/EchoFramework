@@ -1,10 +1,18 @@
-import { PanelHandler } from '@equinor/echo-core';
+import EchoCore from '@equinor/echo-core';
 import { mainMenu, searchPanel } from '@equinor/echo-framework';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './theme/theme.css';
 
-PanelHandler.registerCorePanels(searchPanel, mainMenu);
+const Echo: React.FC = () => {
+    const isAuthenticated = EchoCore.useEchoSetup({
+        leftPanel: searchPanel,
+        rightPanel: mainMenu
+    });
 
-ReactDOM.render(<App />, document.getElementById('root'));
+    return <>{isAuthenticated ? <h1>hello there</h1> : <h1>OhhNoo</h1>}</>;
+};
+
+if (!(window !== window.parent && !window.opener)) {
+    ReactDOM.render(<Echo />, document.getElementById('root'));
+}
