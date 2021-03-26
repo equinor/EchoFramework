@@ -1,30 +1,30 @@
 import React, { ErrorInfo, ReactNode } from 'react';
 import Error from './error';
 
-interface ErrorBoundaryProps {
+interface Props {
     children?: React.ReactNode;
 }
 
-interface ErrorBoundaryState {
-    hasError: boolean;
+type State = {
+    error: Error;
 }
 
-class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-    constructor(props: ErrorBoundaryProps) {
+class ErrorBoundary extends React.Component<Props, State> {
+    constructor(props: Props) {
         super(props);
         this.state = {
-            hasError: false
+            error: undefined!
         };
     }
 
     static getDerivedStateFromError(error: Error) {
-        return { hasError: true };
+        return { error: error };
     }
     
     componentDidCatch(error: Error, errorInfo: ErrorInfo): void {}
 
     render(): JSX.Element | ReactNode {
-        return this.state.hasError ? <Error /> : this.props.children;
+        return this.state.error ? <Error error={this.state.error} /> : this.props.children;
     }
 }
 
