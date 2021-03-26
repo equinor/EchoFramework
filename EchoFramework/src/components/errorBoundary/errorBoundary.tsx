@@ -7,24 +7,30 @@ interface Props {
 
 type State = {
     error: Error;
+    errorInfo: ErrorInfo;
 }
 
+/**
+ * @link https://reactjs.org/docs/error-boundaries.html
+ */
 class ErrorBoundary extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            error: undefined!
+            error: undefined!,
+            errorInfo: undefined!
         };
     }
 
-    static getDerivedStateFromError(error: Error) {
-        return { error: error };
+    componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+        this.setState({
+            error,
+            errorInfo
+        });
     }
-    
-    componentDidCatch(error: Error, errorInfo: ErrorInfo): void {}
 
     render(): JSX.Element | ReactNode {
-        return this.state.error ? <Error error={this.state.error} /> : this.props.children;
+        return this.state.error ? <Error error={this.state.error} errorInfo={this.state.errorInfo} /> : this.props.children;
     }
 }
 
