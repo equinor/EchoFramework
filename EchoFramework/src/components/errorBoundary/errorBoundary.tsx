@@ -1,8 +1,9 @@
+import { BaseError } from '@equinor/echo-core';
 import React, { ErrorInfo, ReactNode } from 'react';
 import Error from './error';
 
 interface Props {
-    children?: React.ReactNode;
+    children?: ReactNode;
 }
 
 type State = {
@@ -23,10 +24,13 @@ class ErrorBoundary extends React.Component<Props, State> {
     }
 
     componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-        this.setState({
-            error,
-            errorInfo
-        });
+        this.setState({ error, errorInfo });
+        this.createBaseError();
+    }
+
+    private createBaseError(): void {
+        const { message } = this.state.error;
+        const baseError = new BaseError(message);
     }
 
     render(): JSX.Element | ReactNode {
