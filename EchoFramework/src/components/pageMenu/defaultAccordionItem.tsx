@@ -1,4 +1,5 @@
-import { Accordion, Icon } from '@equinor/eds-core-react';
+import { Icon } from '@equinor/echo-components';
+import { Accordion } from '@equinor/eds-core-react';
 import React from 'react';
 import { themeConst } from '../../theme/themeConst';
 import style from './accordionItem.module.css';
@@ -9,6 +10,7 @@ type DefaultAccordionItemProps = {
     title: string;
     subtitle?: string;
     iconName: string;
+    iconTitle: string;
     children: React.ReactChild | React.ReactChild[];
 };
 
@@ -20,6 +22,7 @@ const DefaultAccordionItem: React.FC<DefaultAccordionItemProps> = ({
     title,
     subtitle,
     iconName,
+    iconTitle,
     children
 }: DefaultAccordionItemProps) => {
     return (
@@ -31,7 +34,12 @@ const DefaultAccordionItem: React.FC<DefaultAccordionItemProps> = ({
             }}
         >
             <AccordionHeader className={style.appMenuAccordionItemHeader}>
-                <Icon color={themeConst.asBuilt} name={iconName} className={style.accordionIconLeft} />
+                <Icon
+                    color={themeConst.asBuilt}
+                    title={iconTitle}
+                    name={iconName}
+                    className={style.accordionIconLeft}
+                />
                 <AccordionHeaderTitle>
                     {title}
                     <div className={style.accordionSubHeader}>{subtitle}</div>

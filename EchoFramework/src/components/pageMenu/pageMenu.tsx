@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import EchoCore, { usePanels, usePlantSettings } from '@equinor/echo-core';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -31,7 +30,11 @@ const PageMenu: React.FC<PageMenuProps> = ({ trackEventOpenExternalLink, isSynci
     return (
         <div className={style.pageMenuDrawer}>
             <div className={style.appMenuContainer}>
-                <PageMenuDrawerItem iconName={'EELogo'} trackEventOpenExternalLink={trackEventOpenExternalLink}>
+                <PageMenuDrawerItem
+                    iconName={'EELogo'}
+                    iconTitle={'Home'}
+                    trackEventOpenExternalLink={trackEventOpenExternalLink}
+                >
                     <Link
                         to={`/?instCode=${selectedInstCode}`}
                         onClick={(): void => {
@@ -49,6 +52,7 @@ const PageMenu: React.FC<PageMenuProps> = ({ trackEventOpenExternalLink, isSynci
                     title="Profile &amp; Settings"
                     subtitle={selectedPlantName}
                     iconName="account_circle"
+                    iconTitle="Profile and settings"
                 >
                     <Settings trackEventOpenExternalLink={trackEventOpenExternalLink} isDisabled={isSyncing} />
                 </DefaultAccordionItem>
@@ -60,6 +64,7 @@ const PageMenu: React.FC<PageMenuProps> = ({ trackEventOpenExternalLink, isSynci
                         trackEvent: 'aboutEcho'
                     }}
                     iconName={'email_alpha'}
+                    iconTitle={'About echo'}
                     trackEventOpenExternalLink={trackEventOpenExternalLink}
                 />
 
@@ -70,10 +75,15 @@ const PageMenu: React.FC<PageMenuProps> = ({ trackEventOpenExternalLink, isSynci
                         trackEvent: 'aboutEchoTermsAndConditions'
                     }}
                     iconName={'assignment'}
+                    iconTitle={'Terms and conditions'}
                     trackEventOpenExternalLink={trackEventOpenExternalLink}
                 />
 
-                <PageMenuDrawerItem iconName={'exit_to_app'} trackEventOpenExternalLink={trackEventOpenExternalLink}>
+                <PageMenuDrawerItem
+                    iconName={'exit_to_app'}
+                    iconTitle={'Sign out'}
+                    trackEventOpenExternalLink={trackEventOpenExternalLink}
+                >
                     <Link
                         className={style.appMenuHeaderLink}
                         to=""

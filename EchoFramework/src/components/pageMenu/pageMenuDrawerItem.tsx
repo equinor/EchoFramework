@@ -1,4 +1,4 @@
-import { Icon } from '@equinor/eds-core-react';
+import { Icon } from '@equinor/echo-components';
 import React from 'react';
 import { ReactComponent as EELogo } from '../../icons/logo_ee.svg';
 import { themeConst } from '../../theme/themeConst';
@@ -12,6 +12,7 @@ interface ExternalLinkProps {
 
 interface PageMenuDrawerItemProps {
     iconName: string;
+    iconTitle: string;
     trackEventOpenExternalLink: (linkTo: string) => void;
     children?: React.ReactNode;
     externalLink?: ExternalLinkProps;
@@ -19,6 +20,7 @@ interface PageMenuDrawerItemProps {
 
 const PageMenuDrawerItem: React.FC<PageMenuDrawerItemProps> = ({
     iconName,
+    iconTitle,
     children,
     externalLink,
     trackEventOpenExternalLink
@@ -27,7 +29,9 @@ const PageMenuDrawerItem: React.FC<PageMenuDrawerItemProps> = ({
         if (iconName === 'EELogo') {
             return <EELogo className={style.accordionLogo} />;
         } else {
-            return <Icon className={style.accordionLogo} color={themeConst.asBuilt} name={iconName} />;
+            return (
+                <Icon className={style.accordionLogo} color={themeConst.asBuilt} name={iconName} title={iconTitle} />
+            );
         }
     };
 
@@ -62,7 +66,7 @@ const PageMenuDrawerItem: React.FC<PageMenuDrawerItemProps> = ({
                     href={externalLink.link}
                     onClick={(): void => trackEventOpenExternalLink(externalLink.trackEvent)}
                 >
-                    <Icon size={16} color={themeConst.asBuilt} name={'external_link'} />
+                    <Icon size={16} color={themeConst.asBuilt} name={'external_link'} title={'External link'} />
                 </a>
             )}
         </div>

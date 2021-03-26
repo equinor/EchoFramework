@@ -1,13 +1,10 @@
-/* eslint-disable @typescript-eslint/camelcase */
+import { Icon } from '@equinor/echo-components';
 import EchoCore from '@equinor/echo-core';
-import { Divider, Icon } from '@equinor/eds-core-react';
-import { account_circle } from '@equinor/eds-icons';
+import { Divider } from '@equinor/eds-core-react';
 import React from 'react';
 import { themeConst } from '../../../theme/themeConst';
 import PlantSelector from '../../plantSelector/plantSelector';
 import styles from './settings.module.css';
-
-Icon.add({ account_circle });
 
 interface SettingsProps {
     trackEventOpenExternalLink: (linkTo: string) => void;
@@ -24,7 +21,13 @@ const Settings: React.FC<SettingsProps> = ({ trackEventOpenExternalLink, isDisab
                 {userImage && userImage.length > 0 ? (
                     <img src={userImage} alt={'profile'} className={styles.accountImage} />
                 ) : (
-                    <Icon color={themeConst.asBuilt} name="account_circle" size={48} className={styles.accountIcon} />
+                    <Icon
+                        color={themeConst.asBuilt}
+                        title={'Profile picture'}
+                        name="account_circle"
+                        size={48}
+                        className={styles.accountIcon}
+                    />
                 )}
                 <div className={styles.accountText}>
                     <div className={styles.accountName}>{userInfo?.displayName}</div>
