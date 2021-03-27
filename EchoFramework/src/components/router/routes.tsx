@@ -1,30 +1,30 @@
-import * as React from 'react';
-import { Route, RouteComponentProps, Switch, SwitchProps } from 'react-router';
-import { useGlobalState } from '../hooks';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { getLayout } from './getLayout';
 
-/**
- * The props used by the PiralRoutes component.
- */
-export interface RoutesProps extends SwitchProps {
-    /**
-     * Sets the component for showing the not found page.
-     */
-    NotFound: React.ComponentType<RouteComponentProps>;
+interface EchoRoute {
+    component: React.FC;
+    layoutKey: string;
+    url: string;
 }
 
-/**
- * The component for defining the exclusive routes to be used.
- */
-export const PiralRoutes: React.FC<RoutesProps> = ({ NotFound, ...props }) => {
-    const apps = useGlobalState((s) => s.registry.apps);
+function getRoutes(): EchoRoute[] {
+    return [] as EchoRoute[];
+}
 
+export const EchoRouter: React.FC = () => {
+    const routes = []; //useGlobalState((s) => s.register.routes);
     return (
-        <Switch {...props}>
-            {Object.keys(apps).map((url) => (
-                <Route exact key={url} path={url} component={apps[url].component} />
-            ))}
-            <Route component={NotFound} />
+        <Switch>
+            {routes.map(({ url, component, layoutKey }: EchoRoute) => {
+                const Layout = getLayout(layoutKey);
+                return (
+                    <Layout>
+                        <Route exact key={url} path={url} component={component} />;
+                    </Layout>
+                );
+            })}
         </Switch>
     );
 };
-PiralRoutes.displayName = 'Routes';
+EchoRouter.displayName = 'Routes';
