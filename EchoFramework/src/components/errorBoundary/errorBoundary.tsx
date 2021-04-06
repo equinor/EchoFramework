@@ -30,15 +30,19 @@ class ErrorBoundary extends React.Component<Props, State> {
     }
 
     private tryLogError() {
-        if (this.props.logError) {
-            const { logError } = this.props;
-            const error = this.createError();
-            logError(error);
-        }
+        if (this.props.logError) this.logError();
+    }
+
+    private logError() {
+        const { logError } = this.props;
+
+        const error = this.createError();
+        logError!(error);
     }
 
     private createError(): BaseError {
         const { message } = this.state.error;
+        
         const error = new BaseError(message);
         return error;
     }
