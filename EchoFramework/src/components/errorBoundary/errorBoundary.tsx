@@ -8,8 +8,8 @@ interface Props {
 }
 
 type State = {
-    error: Error;
-    errorInfo: ErrorInfo;
+    error: Error | any;
+    errorInfo: ErrorInfo | any;
 }
 
 /**
@@ -34,17 +34,15 @@ class ErrorBoundary extends React.Component<Props, State> {
     }
 
     private logError() {
-        const { logError } = this.props;
-
-        const error = this.createError();
-        logError!(error);
+        const error = this.createBaseError();
+        this.props.logError!(error);
     }
 
-    private createError(): BaseError {
-        const { message } = this.state.error;
-        
-        const error = new BaseError(message);
-        return error;
+    private createBaseError(): BaseError {
+        const { error, errorInfo } = this.state;
+        const baseError = new BaseError(error.message, error);
+        baseError.addProperties(errorInfo);
+        return baseError;
     }
 
     render(): JSX.Element | ReactNode {
