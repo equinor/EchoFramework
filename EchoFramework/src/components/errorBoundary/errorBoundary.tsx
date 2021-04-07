@@ -4,7 +4,7 @@ import Error from './error';
 
 interface Props {
     children?: ReactNode;
-    logError?: (error: BaseError) => void;
+    logError?: (error: Error) => void;
 }
 
 type State = {
@@ -34,15 +34,15 @@ class ErrorBoundary extends React.Component<Props, State> {
     }
 
     private logError() {
-        const error = this.createBaseError();
+        const error = this.createError();
         this.props.logError!(error);
     }
 
-    private createBaseError(): BaseError {
+    private createError(): Error {
         const { error, errorInfo } = this.state;
-        const baseError = new BaseError(error.message, error);
-        baseError.addProperties(errorInfo);
-        return baseError;
+        const _error = new BaseError(error.message, error);
+        _error.addProperties(errorInfo);
+        return _error;
     }
 
     render(): JSX.Element | ReactNode {
