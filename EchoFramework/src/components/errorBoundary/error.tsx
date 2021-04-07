@@ -1,4 +1,4 @@
-import { Button, Icon } from '@equinor/eds-core-react';
+import { Icon } from '@equinor/eds-core-react';
 import { error_filled } from '@equinor/eds-icons';
 import React, { ErrorInfo } from 'react';
 import { themeConst } from '../../theme/themeConst';
@@ -16,8 +16,11 @@ const Error: React.FC<Props> = ({error, errorInfo}: Props) => (
         <Icon color={themeConst.darkEquiRed} name="error_filled" size={48} />
         <h1>Hmm, something went wrong..</h1>
         <p>An unexpected {error.name} has occurred, please try again.</p>
-        <Button variant="outlined">Read more</Button>
-        {errorInfo.componentStack}
+        <details>
+            {error && error.toString()}
+            <br />
+            {errorInfo.componentStack}
+        </details>
     </div>
 );
 
