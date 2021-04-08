@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import StatusLegendWrapper from '../../components/statusLegend/statusLegendWrapper';
 import CorePanelLeft from '../components/panel/corePanelLeft';
 import CorePanelRight from '../components/panel/corePanelRight';
