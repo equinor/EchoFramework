@@ -1,3 +1,36 @@
-.panel {
-    padding: var(--small);
+@media only screen and (max-width: 500px) {
+    .pageMenuDrawer {
+        right: -345px;
+        width: auto;
+    }
+}
+
+.versionInformation {
+    margin: 20px 0;
+    flex-direction: column;
+    justify-content: flex-end;
+    display: flex;
+    flex: 1 0 auto;
+    height: fit-content;
+    font-size: 12px;
+}
+
+.appMenuHeaderLink {
+    width: 100%;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 8px 0;
+    color: var(--echoText);
+}
+
+.appMenuHeaderLink:hover {
+    text-decoration: none;
+}
+
+.appMenuContainer {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }

@@ -21,7 +21,7 @@ export default [
             format: 'cjs',
             exports: 'named'
         },
-        external: ['react', 'react-dom', '@equinor/echo-core', '@equinor/eds-core-react', 'styled-components'],
+        external: ['react', 'react-dom', 'react-router-dom', '@equinor/echo-core', '@equinor/eds-core-react', 'styled-components'],
         plugins: [
             del({ targets: 'dist/*', runOnce: true }),
             typescript(),

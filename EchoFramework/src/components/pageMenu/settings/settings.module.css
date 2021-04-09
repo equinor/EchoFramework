@@ -1,0 +1,63 @@
+.assetLabel {
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-left: var(--small);
+}
+
+.container {
+    position: relative;
+    color: var(--echoText);
+}
+
+.accountContainer {
+    display: flex;
+}
+
+.accountIcon {
+    margin-right: var(--medium);
+    width: 80px;
+    height: 80px;
+}
+.accountImage {
+    margin-right: var(--medium);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid var(--equiGray4);
+}
+
+.accountName {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.accountJobTitle {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.accountEmail {
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration-line: underline;
+    color: #007079;
+}
+.accountText {
+    margin: auto 0;
+}
+
+.subMenu {
+    margin-bottom: var(--medium);
+}
+
+.subHeader {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: var(--medium);
+}
+
+.subContainer {
+    margin-bottom: 0;
+}
