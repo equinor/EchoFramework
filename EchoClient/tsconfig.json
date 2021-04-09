@@ -14,7 +14,7 @@
     "preserveConstEnums": true,
     "removeComments": true,
     "sourceMap": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "allowJs": true,
     "skipLibCheck": true,
     "target": "es5",

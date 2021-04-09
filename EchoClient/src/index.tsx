@@ -2,7 +2,8 @@ import EchoCore, { PanelHandler } from '@equinor/echo-core';
 import { EchoContent, mainMenu, searchPanel } from '@equinor/echo-framework';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Info from './components/info';
+import ModuleLoader from './components/moduleLoader';
+
 PanelHandler.registerCorePanels(searchPanel, mainMenu);
 
 const Echo: React.FC = (): JSX.Element => {
@@ -15,7 +16,7 @@ const Echo: React.FC = (): JSX.Element => {
         <>
             {isAuthenticated && (
                 <EchoContent>
-                    <Info />
+                    <ModuleLoader />
                 </EchoContent>
             )}
         </>

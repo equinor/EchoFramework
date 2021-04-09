@@ -25,9 +25,10 @@
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-router-dom": "^5.2.0",
-        "@equinor/echo-core": "0.1.22",
-        "@equinor/echo-components": "0.0.11",
-        "@equinor/eds-core-react": "^0.8.5",
+        "@equinor/echo-core": "*",
+        "@equinor/echo-components": "*",
+        "@equinor/eds-core-react": "*",
+        "@equinor/echo-scripts": "*",
         "styled-components": "^5.2.1"
     },
     "devDependencies": {
@@ -36,6 +37,7 @@
         "@babel/preset-react": "^7.12.10",
         "@equinor/echo-components": "0.0.11",
         "@equinor/echo-core": "0.1.22",
+        "@equinor/echo-scripts": "^0.1.5",
         "@equinor/eds-core-react": "^0.8.5",
         "@modular-css/rollup": "^25.8.2",
         "@rollup/plugin-node-resolve": "^11.0.1",
