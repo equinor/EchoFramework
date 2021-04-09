@@ -1,10 +1,10 @@
-import EchoCore, { PanelHandler } from '@equinor/echo-core';
+import '@equinor/echo-components/dist/index';
+import EchoCore from '@equinor/echo-core';
 import { EchoContent, mainMenu, searchPanel } from '@equinor/echo-framework';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import ModuleLoader from './components/moduleLoader';
-
-PanelHandler.registerCorePanels(searchPanel, mainMenu);
 
 const Echo: React.FC = (): JSX.Element => {
     const isAuthenticated = EchoCore.useEchoSetup({
@@ -15,9 +15,12 @@ const Echo: React.FC = (): JSX.Element => {
     return (
         <>
             {isAuthenticated && (
-                <EchoContent>
-                    <ModuleLoader />
-                </EchoContent>
+                <BrowserRouter>
+                    <EchoContent>
+                        <Route exact path={'/'} component={ModuleLoader} />
+                    </EchoContent>
+                    <Route render={(): JSX.Element => <Redirect to="/" />} />
+                </BrowserRouter>
             )}
         </>
     );

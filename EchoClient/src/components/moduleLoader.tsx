@@ -91,11 +91,7 @@ getApp('/app-bundle.js').then((a) => {
 });
 
 function ModuleLoader() {
-    return (
-        <>
-            <Component />
-        </>
-    );
+    return <Component />;
 }
 
 export default ModuleLoader;

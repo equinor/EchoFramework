@@ -1,3 +1,4 @@
+import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import url from '@rollup/plugin-url';
 import svgr from '@svgr/rollup';
@@ -6,7 +7,6 @@ import commonjs from 'rollup-plugin-commonjs';
 import del from 'rollup-plugin-delete';
 import dt from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
-import { typescriptPaths } from 'rollup-plugin-typescript-paths';
 import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
@@ -16,28 +16,34 @@ export default [
         preserveModules: true,
         input: pkg.source,
         output: {
-            dir: "dist/",
-            // file: "dist/index.js",
+            dir: 'dist/',
             format: 'cjs',
             exports: 'named'
         },
-        external: ['react', 'react-dom', 'react-router-dom', '@equinor/echo-core', '@equinor/eds-core-react', 'styled-components'],
+        external: [
+            'react',
+            'react-dom',
+            'react-router-dom',
+            '@equinor/echo-core',
+            '@equinor/eds-core-react',
+            'styled-components'
+        ],
         plugins: [
             del({ targets: 'dist/*', runOnce: true }),
+            json(),
             typescript(),
-            typescriptPaths(),
             postcss({
                 modules: true,
                 minimize: true,
-                exclude: 'src/theme/theme.css',
+                exclude: 'src/theme/theme.css'
             }),
             postcss({
                 extract: true,
                 modules: false,
                 minimize: true,
                 include: 'src/theme/theme.css',
-                exclude: ' /\.module\.css$/'
-              }),
+                exclude: /\.module\.css$/
+            }),
             babel({
                 babelrc: false,
                 presets: [['@babel/preset-env', { modules: false }], ['@babel/preset-react']],
@@ -47,7 +53,7 @@ export default [
             url(),
             svgr(),
             nodeResolve(),
-            commonjs(),
+            commonjs()
         ]
     },
     {
@@ -59,15 +65,14 @@ export default [
             }
         ],
         plugins: [
-            dt(),             
+            dt(),
             postcss({
                 extract: true,
                 modules: false,
                 minimize: true,
                 include: 'src/theme/theme.css',
-                exclude: ' /\.module\.css$/'
-              })
-            ]
-    },
-
+                exclude: /\.module\.css$/
+            })
+        ]
+    }
 ];

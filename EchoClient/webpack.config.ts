@@ -59,7 +59,7 @@ const webpackConfig = {
     devServer: {
         contentBase: [path.join(__dirname, 'build'), path.join(__dirname, 'public')],
         compress: true,
-        port: 8080,
+        port: 3000,
         // historyApiFallback: true,
         http2: true
         // overlay: {
