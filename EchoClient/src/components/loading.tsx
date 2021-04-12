@@ -1,16 +1,16 @@
 import EchoCore, { useInitial } from '@equinor/echo-core';
 import React from 'react';
-import style from './info.module.css';
+import style from './loading.module.css';
 
-const Info: React.FC = () => {
+const Loading: React.FC = () => {
     useInitial(() => {
         EchoCore.registerPanels();
     });
 
     return (
         <div className={style.panel}>
-            <h1>Echo Framework Demo</h1>
-            <h3>PageMenu</h3>
+            <h3>Echo Module Development</h3>
+            <h1>Loading Module...</h1>
             <p>
                 process.env.PRODUCTION: <b>{process.env.PRODUCTION?.toString()}</b>
             </p>
@@ -24,4 +24,4 @@ const Info: React.FC = () => {
     );
 };
 
-export default Info;
+export default Loading;
