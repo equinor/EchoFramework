@@ -23,6 +23,6 @@ export default async function echoSetup(App: React.FC<{}>, rootElementId: string
     }
 }
 
-function removeElementById(id: string) {
+export function removeElementById(id: string) {
     document.getElementById(id)?.remove();
 }
