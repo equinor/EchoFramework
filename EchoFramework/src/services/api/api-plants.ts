@@ -1,5 +1,5 @@
-import { Plant } from "@equinor/echo-core";
-import { baseApiUrl, request } from "./api-manager";
+import { Plant } from '@equinor/echo-core';
+import { baseApiUrl, request } from './api-manager';
 
 /**
  * Function for getting a list of plants from our API.

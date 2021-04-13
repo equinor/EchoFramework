@@ -5,14 +5,14 @@ import { checkIsPlantsListUpdated } from './plantsDataUtils';
 
 /**
  * Function for getting the list of plants from the API and
- * updating our local list of plants if there is a difference.
+ * updating our list of plants in local storage if there is a difference.
  * @return {*}  {Promise<void>}
  */
-async function getCorePlants(): Promise<void> {
+async function updatePlants(): Promise<void> {
     const apiPlants: Plant[] = await getPlantsFromApi();
     const localPlants = getPlants();
 
-    if (apiPlants && apiPlants.length > 0 && checkIsPlantsListUpdated(apiPlants, [...localPlants])) {
+    if (apiPlants && apiPlants.length > 0 && checkIsPlantsListUpdated(apiPlants, localPlants)) {
         setPlantsData({ plants: apiPlants });
     }
 }
@@ -24,6 +24,6 @@ async function getCorePlants(): Promise<void> {
  */
 export async function startup(): Promise<void> {
     if (navigator.onLine) {
-        fireAndForget(getCorePlants);
+        fireAndForget(updatePlants);
     }
 }
