@@ -1,22 +1,20 @@
 import { EchoEvents, eventHub, Plant } from '@equinor/echo-core';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { handlePlantChanged } from '../../services/eventCallbacks/plantChanged';
-import { RootState } from '../../store';
+import { handlePlantChanged } from '../services/eventCallbacks/plantChanged';
 
 interface EchoEventHandlerProps {
     children: React.ReactNode;
 }
 
-const EchoContent: React.FC<EchoEventHandlerProps> = ({ children }: EchoEventHandlerProps) => {
-    const settingsItems = useSelector((state: RootState) => state.userSettings.settingsItems);
-    const dispatch = useDispatch();
-    const history = useHistory();
-
+/**
+ * Wrapper component for listening to events.
+ * @param {EchoEventHandlerProps} { children }
+ * @return {*}
+ */
+const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEventHandlerProps) => {
     useEffect(() => {
         const unsubscribe = eventHub.subscribe(EchoEvents.PlantChanged, (newSelectedPlant: Plant) =>
-            handlePlantChanged(newSelectedPlant, dispatch, history, settingsItems)
+            handlePlantChanged(newSelectedPlant)
         );
         return (): void => {
             unsubscribe();
@@ -26,4 +24,4 @@ const EchoContent: React.FC<EchoEventHandlerProps> = ({ children }: EchoEventHan
     return <>{children}</>;
 };
 
-export default EchoContent;
+export default EchoEventHandler;
