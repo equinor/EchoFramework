@@ -5,7 +5,6 @@ import svgr from '@svgr/rollup';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import del from 'rollup-plugin-delete';
-import dt from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
@@ -54,25 +53,6 @@ export default [
             svgr(),
             nodeResolve(),
             commonjs()
-        ]
-    },
-    {
-        input: pkg.source,
-        output: [
-            {
-                file: pkg.types,
-                format: 'es'
-            }
-        ],
-        plugins: [
-            dt(),
-            postcss({
-                extract: true,
-                modules: false,
-                minimize: true,
-                include: 'src/theme/theme.css',
-                exclude: /\.module\.css$/
-            })
         ]
     }
 ];

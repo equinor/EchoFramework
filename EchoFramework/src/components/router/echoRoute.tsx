@@ -1,10 +1,12 @@
+import { AppComponentProps } from '@equinor/echo-core/dist/types/api';
+import { WrappedComponent } from '@equinor/echo-core/dist/types/components';
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { LayoutType, useLayout } from './useLayout';
+import { useLayout } from './useLayout';
 
 interface EchoRouteProps {
-    component: React.FC<any>;
-    layoutKey?: LayoutType;
+    component: WrappedComponent<AppComponentProps>;
+    layoutKey?: string;
     customLayout?: React.FC;
     path: string;
 }

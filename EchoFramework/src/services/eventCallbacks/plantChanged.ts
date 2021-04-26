@@ -8,9 +8,7 @@ import { Plant, setSelectedPlant } from '@equinor/echo-core';
  */
 export const handlePlantChanged = async (newSelectedPlant: Plant): Promise<void> => {
     setSelectedPlant({
-        instCode: newSelectedPlant.instCode,
-        plantName: newSelectedPlant.description,
-        sapPlantId: newSelectedPlant.sapPlantId,
-        proCoSysPlantId: newSelectedPlant.proCoSysPlantId
+        ...newSelectedPlant,
+        plantName: newSelectedPlant.description
     });
 };

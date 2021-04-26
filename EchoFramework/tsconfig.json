@@ -13,6 +13,7 @@
       "resolveJsonModule": true,
       "isolatedModules": true,
       "noImplicitAny": false,
+      "declaration":true,
       "noEmit": true,
       "jsx": "react",
       // "plugins": [{ "name": "typescript-plugin-css-modules" }],
@@ -20,5 +21,8 @@
   },
   "include": [    
     "src"
+  ],
+  "exclude": [
+    "__test__"
   ]
 }

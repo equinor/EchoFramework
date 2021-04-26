@@ -1,26 +1,21 @@
+import { EchoModulesLoading, LoadingModuleOptions, startLoadingModules } from '@equinor/echo-base';
+import { initializeModules } from '@equinor/echo-core';
 import React, { useEffect } from 'react';
 
 export interface MediatorProps {
-    options: string;
+    options: LoadingModuleOptions;
 }
 
 export interface AppLoading {}
 
 export const Mediator: React.FC<MediatorProps> = ({ options }) => {
     useEffect(() => {
-        const { connect, disconnect } = startLoadingApps(options);
-        const notifier: AppLoading = (error, apps, loaded) => {
-            initializeModules(!loaded, error, apps);
+        const { connect, disconnect } = startLoadingModules(options);
+        const notifier: EchoModulesLoading = (error, modules, loaded) => {
+            initializeModules(!loaded, error, modules);
         };
         connect(notifier);
         return () => disconnect(notifier);
     }, []);
     return null;
 };
-
-function startLoadingApps(options: string): { connect: any; disconnect: any } {
-    throw new Error('Function not implemented.');
-}
-function initializeModules(arg0: boolean, error: any, apps: any) {
-    throw new Error('Function not implemented.');
-}

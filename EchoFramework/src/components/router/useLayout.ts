@@ -1,7 +1,5 @@
 import { DefaultLayout, LayoutProps, MainLayout } from '../containers/layouts';
 
-export type LayoutType = 'main' | 'app';
-
 const layouts = {
     main: MainLayout,
     app: MainLayout
