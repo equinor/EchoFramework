@@ -11,7 +11,7 @@ export const handlePlantChanged = async (newSelectedPlant: Plant): Promise<void>
         instCode: newSelectedPlant.instCode,
         plantName: newSelectedPlant.description,
         sapPlantId: newSelectedPlant.sapPlantId,
-        proCoSysPlantId: newSelectedPlant.proCoSysPlantId,
-        hasTr2000: newSelectedPlant.hasTr2000
+        proCoSysPlantId: newSelectedPlant.proCoSysPlantId
+        // hasTr2000: newSelectedPlant.hasTr2000
     });
 };
