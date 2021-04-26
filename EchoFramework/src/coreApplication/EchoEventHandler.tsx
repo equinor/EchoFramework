@@ -11,7 +11,7 @@ interface EchoEventHandlerProps {
  * @param {EchoEventHandlerProps} { children }
  * @return {*}
  */
-const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEventHandlerProps) => {
+const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEventHandlerProps): JSX.Element => {
     useEffect(() => {
         const unsubscribe = eventHub.subscribe(EchoEvents.PlantChanged, (newSelectedPlant: Plant) =>
             handlePlantChanged(newSelectedPlant)
