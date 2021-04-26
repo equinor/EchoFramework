@@ -1,28 +1,20 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { getLayout } from './getLayout';
+import { Switch } from 'react-router-dom';
+import { EchoRoute } from './echoRoute';
+import { LayoutType } from './useLayout';
 
 interface EchoRoute {
     component: React.FC;
-    layoutKey: string;
+    layoutKey: LayoutType;
     url: string;
 }
 
-function getRoutes(): EchoRoute[] {
-    return [] as EchoRoute[];
-}
-
 export const EchoRouter: React.FC = () => {
-    const routes = []; //useGlobalState((s) => s.register.routes);
+    const routes = useRoutes();
     return (
         <Switch>
             {routes.map(({ url, component, layoutKey }: EchoRoute) => {
-                const Layout = getLayout(layoutKey);
-                return (
-                    <Layout>
-                        <Route exact key={url} path={url} component={component} />;
-                    </Layout>
-                );
+                return <EchoRoute key={url} path={url} component={component} layoutKey={layoutKey} />;
             })}
         </Switch>
     );

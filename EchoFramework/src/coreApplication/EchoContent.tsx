@@ -1,20 +1,19 @@
 import React from 'react';
-// import StatusLegendWrapper from '../../components/statusLegend/statusLegendWrapper';
 import CorePanelLeft from '../components/panel/corePanelLeft';
 import CorePanelRight from '../components/panel/corePanelRight';
 
 interface CorePanelsProps {
     children: React.ReactNode;
+    Legend: React.FC;
 }
 
-const EchoContent: React.FC<CorePanelsProps> = ({ children }: CorePanelsProps): JSX.Element => {
+export const EchoContent: React.FC<CorePanelsProps> = ({ children, Legend }: CorePanelsProps): JSX.Element => {
     return (
         <>
             <CorePanelLeft />
             <CorePanelRight />
             {children}
-
-            {/* <StatusLegendWrapper /> */}
+            {Legend && <Legend />}
         </>
     );
 };
