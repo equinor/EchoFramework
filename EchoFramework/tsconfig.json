@@ -16,7 +16,7 @@
       "noEmit": true,
       "jsx": "react",
       // "plugins": [{ "name": "typescript-plugin-css-modules" }],
-      "types": ["@equinor/echo-scripts", "@types/node"],
+      "types": ["@equinor/echo-scripts", "@types/node", "@types/jest"],
   },
   "include": [    
     "src"
