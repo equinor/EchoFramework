@@ -1,0 +1,10 @@
+.toaster {
+    z-index: 100;
+}
+
+.chip {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    padding: 5px !important;
+}
