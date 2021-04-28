@@ -1,22 +1,17 @@
 import { RouteRegistration, useRoutes } from '@equinor/echo-core';
 import React from 'react';
-import { Switch } from 'react-router-dom';
 import { EchoRoute } from './echoRoute';
 
-interface EchoRoute {
-    component: React.FC;
-    layoutKey?: string;
-    url: string;
-}
+type EchoRouterProps = RouteRegistration;
 
-export const EchoRouter: React.FC = () => {
+export const EchoRouter: React.FC = (): JSX.Element => {
     const routes = useRoutes();
+
     return (
-        <Switch>
-            {routes.map(({ url, component, layoutKey }: RouteRegistration) => {
-                return <EchoRoute key={url} path={url} component={component} layoutKey={layoutKey} />;
+        <>
+            {routes.map(({ path, component, layoutKey, key }: EchoRouterProps) => {
+                return <EchoRoute key={key} path={path} component={component} layoutKey={layoutKey} />;
             })}
-        </Switch>
+        </>
     );
 };
-EchoRouter.displayName = 'Routes';

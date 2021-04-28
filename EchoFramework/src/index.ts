@@ -1,6 +1,5 @@
 export * from './components';
 export { default as PageMenu } from './components/pageMenu/pageMenu';
-export { default as PlantSelector } from './components/plantSelector/plantSelector';
 export { default as Toast } from './components/toaster/toaster';
 export { default as EchoContent } from './coreApplication/EchoContent';
 export { mainMenu, searchPanel } from './coreApplication/EchoContentPanels';

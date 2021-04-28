@@ -16,7 +16,7 @@ interface PlantSelectorProps {
  * }
  * @return {*}
  */
-const PlantSelector: React.FC<PlantSelectorProps> = ({ variant, isDisabled }: PlantSelectorProps) => {
+export const PlantSelector: React.FC<PlantSelectorProps> = ({ variant, isDisabled }: PlantSelectorProps) => {
     const plants = usePlants();
     const { instCode: selectedPlantCode, plantName: selectedPlant } = usePlantSettings();
     const dropdownData = plants.map((plant: Plant) => plant.description);
@@ -74,5 +74,3 @@ const PlantSelector: React.FC<PlantSelectorProps> = ({ variant, isDisabled }: Pl
         />
     );
 };
-
-export default PlantSelector;

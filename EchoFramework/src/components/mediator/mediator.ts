@@ -12,7 +12,7 @@ export const Mediator: React.FC<MediatorProps> = ({ options }) => {
     useEffect(() => {
         const { connect, disconnect } = startLoadingModules(options);
         const notifier: EchoModulesLoading = (error, modules, loaded) => {
-            initializeModules(!loaded, error, modules);
+            initializeModules(loaded, error, modules);
         };
         connect(notifier);
         return () => disconnect(notifier);

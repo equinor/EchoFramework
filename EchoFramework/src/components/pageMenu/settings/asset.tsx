@@ -1,5 +1,5 @@
 import React from 'react';
-import PlantSelector from '../../plantSelector/plantSelector';
+import { PlantSelector } from '../../plantSelector/plantSelector';
 import styles from './settings.module.css';
 
 interface AssetProps {

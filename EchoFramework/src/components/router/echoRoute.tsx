@@ -9,15 +9,24 @@ interface EchoRouteProps {
     layoutKey?: string;
     customLayout?: React.FC;
     path: string;
+    key: string;
 }
 
-export const EchoRoute: React.FC<EchoRouteProps> = ({ component: Component, layoutKey, customLayout, ...rest }) => {
+export const EchoRoute: React.FC<EchoRouteProps> = ({
+    component: Component,
+    layoutKey,
+    customLayout,
+    path,
+    key
+}: EchoRouteProps) => {
     const coreLayout = useLayout(layoutKey);
     const Layout = customLayout ? customLayout : coreLayout;
+    console.log(path);
     return (
         <Route
-            exact
-            {...rest}
+            key={key}
+            exact={true}
+            path={path}
             render={(props) => (
                 <Layout>
                     <Component {...props} />
