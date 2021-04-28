@@ -46,6 +46,11 @@ export const themeConst = {
     systems: '#D5EAF4',
     locations: '#3EB54A',
 
+    /* Popover colors */
+    warningText: '#ad6200',
+    warningIcon: '#ff9200',
+    warningBackground: '#ffe7d6',
+
     /* Dropdown colors */
     dropDownButtonBackground: '#f0f0f0',
     dropDownTextColor: '#808080',
