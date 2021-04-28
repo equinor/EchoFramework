@@ -1,7 +1,7 @@
 import { Dropdown } from '@equinor/echo-components';
 import { EchoEvents, eventHub, Plant, usePlants, usePlantSettings } from '@equinor/echo-core';
-import { StarProgress } from '@equinor/eds-core-react';
 import React, { useState } from 'react';
+import { getFallbackPlantList } from '../../services/api/plantsFallbackData';
 
 interface PlantSelectorProps {
     variant?: 'compact' | 'default';
@@ -17,12 +17,11 @@ interface PlantSelectorProps {
  * @return {*}
  */
 const PlantSelector: React.FC<PlantSelectorProps> = ({ variant, isDisabled }: PlantSelectorProps) => {
-    const plants = usePlants();
     const { instCode: selectedPlantCode, plantName: selectedPlant } = usePlantSettings();
+    const globalStatePlants = usePlants();
+    const plants = globalStatePlants.length > 0 ? globalStatePlants : getFallbackPlantList();
     const dropdownData = plants.map((plant: Plant) => plant.description);
     const [acquiredPlantName, setAcquiredPlantName] = useState('');
-
-    const isPlantsLoading = plants.length === 0;
 
     if (!selectedPlant && selectedPlantCode && plants && !acquiredPlantName) {
         const newName = plants.find((plant: Plant) => plant.instCode === selectedPlantCode)?.description;
@@ -49,15 +48,6 @@ const PlantSelector: React.FC<PlantSelectorProps> = ({ variant, isDisabled }: Pl
 
         return filteredPlants.map((plant: Plant) => plant.description);
     };
-
-    if (isPlantsLoading) {
-        return (
-            <div style={{ display: 'flex', alignItems: 'flex-end' }}>
-                <span style={{ textAlign: 'center', fontSize: '24px', marginRight: '0.5rem' }}>Loading plants</span>
-                <StarProgress size={32} />
-            </div>
-        );
-    }
 
     return (
         <Dropdown
