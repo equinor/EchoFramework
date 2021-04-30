@@ -6,7 +6,6 @@ type EchoRouterProps = RouteRegistration;
 
 export const EchoRouter: React.FC = (): JSX.Element => {
     const routes = useRoutes();
-
     return (
         <>
             {routes.map(({ path, component, layoutKey, key }: EchoRouterProps) => {
