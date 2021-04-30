@@ -1,7 +1,6 @@
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import url from '@rollup/plugin-url';
-import svgr from '@svgr/rollup';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import del from 'rollup-plugin-delete';
@@ -24,6 +23,9 @@ export default [
             'react-dom',
             'react-router-dom',
             '@equinor/echo-core',
+            '@equinor/echo-base',
+            '@equinor/echo-components',
+            '@equinor/echo-utils',
             '@equinor/eds-core-react',
             'styled-components'
         ],
@@ -50,7 +52,7 @@ export default [
                 exclude: './node_modules/**'
             }),
             url(),
-            svgr(),
+            // svgr(),
             nodeResolve(),
             commonjs()
         ]

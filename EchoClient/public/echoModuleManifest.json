@@ -1,0 +1,9 @@
+{
+    "name": "echo-app-template",
+    "key": "eat",
+    "shortName": "eat",
+    "fileUri": "/module-bundle.js",
+    "path": "eat",
+    "requireRef": "app",
+    "version": "0.0.1"
+}

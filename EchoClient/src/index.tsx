@@ -4,8 +4,13 @@ import EchoCore, { createEchoAppModuleApi } from '@equinor/echo-core';
 import { EchoContent, EchoEventHandler, EchoRouter, mainMenu, Mediator, searchPanel } from '@equinor/echo-framework';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import { Legend } from './components/legend';
+
+export const Not: React.FC = () => {
+    return <h1>Module not found</h1>;
+};
 
 const Echo: React.FC = (): JSX.Element => {
     const isAuthenticated = EchoCore.useEchoSetup({
@@ -15,7 +20,22 @@ const Echo: React.FC = (): JSX.Element => {
 
     const moduleOptions: LoadingModuleOptions = {
         createApi: createEchoAppModuleApi(),
-        fetchModules: () => Promise.resolve([])
+        dependencies: {
+            react: require('react'),
+            'react-dom': require('react-dom'),
+            '@equinor/echo-core': require('@equinor/echo-core'),
+            '@equinor/echo-framework': require('@equinor/echo-framework')
+        },
+        fetchModules: () => {
+            return new Promise((resolve, rejects) => {
+                fetch('./echoModuleManifest.json').then((response) => {
+                    response.json().then((manifest) => {
+                        const modules = [manifest];
+                        resolve(modules);
+                    });
+                });
+            });
+        }
     };
 
     return (
@@ -26,10 +46,10 @@ const Echo: React.FC = (): JSX.Element => {
                     <EchoEventHandler>
                         <EchoContent Legend={Legend}>
                             <Switch>
+                                <Route exact path={'/'} component={Not} />
                                 <EchoRouter />
-                                {/* <Route exact path={'/'} component={ModuleLoader} /> */}
+                                <Route render={(): JSX.Element => <Redirect to="/" />} />
                             </Switch>
-                            <Route render={(): JSX.Element => <Redirect to="/" />} />
                         </EchoContent>
                     </EchoEventHandler>
                 </BrowserRouter>

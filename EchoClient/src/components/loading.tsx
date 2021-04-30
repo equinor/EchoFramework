@@ -1,12 +1,7 @@
-import EchoCore, { useInitial } from '@equinor/echo-core';
 import React from 'react';
 import style from './loading.module.css';
 
 const Loading: React.FC = () => {
-    useInitial(() => {
-        EchoCore.registerPanels();
-    });
-
     return (
         <div className={style.panel}>
             <h3>Echo Module Development</h3>
