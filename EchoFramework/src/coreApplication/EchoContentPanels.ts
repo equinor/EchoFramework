@@ -1,10 +1,13 @@
 import echoCore, { Panel, PanelType } from '@equinor/echo-core';
 import PageMenu from '../components/pageMenu/pageMenu';
 import SearchMenu from '../components/searchMenu/searchMenu';
-import EELogo from '../icons/logo_ee.svg';
-import Search from '../icons/search.svg';
+import EELogo from '../icons/logo_ee';
+import Search from '../icons/search';
 
-export const mainMenu: Panel = {
+/** 
+* Core Main menu panel registered at client startup
+*/
+const mainMenu: Panel = {
     component: PageMenu,
     panelType: 'right' as PanelType,
     key: echoCore.ECHO_CORE_MAIN,
@@ -12,6 +15,9 @@ export const mainMenu: Panel = {
     label: 'Echo'
 };
 
+/** 
+* Core Application search panel registered at client startup
+*/
 export const searchPanel: Panel = {
     component: SearchMenu,
     panelType: 'left' as PanelType,

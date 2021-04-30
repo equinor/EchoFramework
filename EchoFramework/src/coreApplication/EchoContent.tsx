@@ -4,7 +4,7 @@ import CorePanelRight from '../components/panel/corePanelRight';
 
 interface CorePanelsProps {
     children: React.ReactNode;
-    Legend: React.FC;
+    Legend?: React.FC;
 }
 
 export const EchoContent: React.FC<CorePanelsProps> = ({ children, Legend }: CorePanelsProps): JSX.Element => {
