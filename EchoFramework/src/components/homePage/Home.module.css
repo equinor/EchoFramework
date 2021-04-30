@@ -1,0 +1,222 @@
+.homeContainer {
+    width: 100%;
+    height: 100%;
+    padding-top: 16px;
+    position: relative;
+}
+
+@media screen and (min-width: 640px) {
+    .homeContainer {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.frontPageContentContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 104px;
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.frontPageNavigationContainer {
+    width: 100%;
+    min-height: 250px;
+}
+
+.frontPageNavigationHeader {
+    margin: 8px auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.frontPageCameraButton {
+    display: inline-block;
+}
+
+@media screen and (min-width: 640px) {
+    .productLogo {
+        text-align: right;
+        margin-left: 32px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .productLogo {
+        text-align: center !important;
+        margin-left: 0px;
+    }
+}
+
+.plantName {
+    display: inline-block;
+    width: 100%;
+    font-size: 26px;
+    line-height: 72px;
+    color: #000;
+    margin-left: 32px;
+    text-align: left;
+}
+
+.selectPlant {
+    display: inline-block;
+    width: 100%;
+}
+
+.frontPageSearchContainer {
+    margin: 0 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    margin-bottom: 32px;
+}
+
+.frontPageSearchContainer input {
+    outline: none !important;
+}
+
+.frontPageSearchContainer > div {
+    width: calc(100% - 56px);
+    order: 1;
+}
+
+:global(.echoGhostButtonFrontpage) {
+    order: 2;
+    margin-left: 8px !important;
+    padding: 8px;
+    width: 46px;
+    height: 46px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    border: 1px solid var(--equiGreen1) !important;
+}
+:global(.echoGhostDisabledButtonFrontpage) {
+    order: 2;
+    margin-left: 8px !important;
+    padding: 8px;
+    width: 46px;
+    height: 46px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    border: 1px solid var(--disabledBackgroundColor) !important;
+}
+
+:global(.echoGhostButtonFrontpage > svg) {
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 640px) {
+    .frontPageSearchContainer {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 587px;
+        margin-bottom: 16px;
+    }
+
+    .frontPageNavigationHeader {
+        margin: 16px auto;
+        display: block;
+    }
+    .productLogo {
+        margin-left: 0;
+        width: auto;
+        text-align: right;
+        margin-right: 12px;
+    }
+
+    .plantName {
+        margin-left: 0;
+        width: auto;
+        text-align: left;
+    }
+    .selectPlant {
+        display: inline-block;
+        width: auto;
+        position: relative;
+    }
+}
+
+.brandSliderContainer {
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 640px) {
+    .brandSliderContainer {
+        display: flex;
+        flex: 1;
+        flex-flow: column-reverse;
+    }
+}
+
+@media screen and (min-width: 460px) {
+    .brandSliderContainer img {
+        margin-left: -25%;
+        width: 150%;
+        min-height: 444px;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .brandSliderContainer img {
+        width: 125%;
+        min-height: 444px;
+        height: auto;
+    }
+}
+@media screen and (min-width: 1280px) {
+    .brandSliderContainer img {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+/* Tiny height screen overrides */
+@media screen and (max-height: 462px) {
+    .frontPageContentContainer {
+        padding-top: 32px;
+    }
+}
+@media screen and (max-height: 387px) {
+    .frontPageContentContainer {
+        padding-top: 0;
+    }
+}
+@media screen and (max-height: 350px) {
+    .homeContainer {
+        padding-top: 0;
+    }
+    .frontPageNavigationHeader {
+        margin: 0 auto;
+    }
+}
+
+:global(.echoSearchFrontpage) {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 50px;
+    padding: 14px 20px !important;
+    border: 1px solid var(--equiGreen1) !important;
+    height: auto !important;
+}
+
+:global(.echoSearchFrontpage:focus-within) {
+    background: var(--white) !important;
+}
+
+:global(.echoSearchFrontpage div[role='button']) {
+    padding: 0;
+}
