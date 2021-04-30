@@ -1,4 +1,4 @@
-import { EchoEvents, eventHub, Plant } from '@equinor/echo-core';
+import { EchoEvents, eventHub, Plant, setActiveModulePanels } from '@equinor/echo-core';
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { handlePlantChanged } from '../services/eventCallbacks/plantChanged';
@@ -30,7 +30,7 @@ const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEve
             const { pathname } = location;
             const pathKey = getKeyFromPath(pathname);
             // const { instCode, tagNo, search } = getLinkParams();
-            // setActiveModulePanels(pathKey);
+            setActiveModulePanels(pathKey);
         });
         return (): void => {
             unListen();
