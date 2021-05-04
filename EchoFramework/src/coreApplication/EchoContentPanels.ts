@@ -7,7 +7,7 @@ import Search from '../icons/search';
 /** 
 * Core Main menu panel registered at client startup
 */
-const mainMenu: Panel = {
+export const mainMenu: Panel = {
     component: PageMenu,
     panelType: 'right' as PanelType,
     key: echoCore.ECHO_CORE_MAIN,

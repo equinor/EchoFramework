@@ -1,6 +1,8 @@
+import image from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import url from '@rollup/plugin-url';
+import assets from 'postcss-assets';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import del from 'rollup-plugin-delete';
@@ -36,7 +38,12 @@ export default [
             postcss({
                 modules: true,
                 minimize: true,
-                exclude: 'src/theme/theme.css'
+                exclude: 'src/theme/theme.css',
+                plugins: [
+                    assets({
+                        loadPaths: ['**']
+                    })
+                ]
             }),
             postcss({
                 extract: true,
@@ -52,7 +59,7 @@ export default [
                 exclude: './node_modules/**'
             }),
             url(),
-            // svgr(),
+            image(),
             nodeResolve(),
             commonjs()
         ]

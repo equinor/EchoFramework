@@ -1,6 +1,6 @@
 import { Icon } from '@equinor/echo-components';
 import React from 'react';
-import EELogo from '../../icons/logo_ee.svg';
+import EELogo from '../../icons/logo_ee';
 import { themeConst } from '../../theme/themeConst';
 import style from './pageMenuDrawerItem.module.css';
 

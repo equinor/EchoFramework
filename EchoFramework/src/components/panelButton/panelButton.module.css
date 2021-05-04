@@ -15,7 +15,6 @@
 .pageMenuButton {
     width: 56px;
     height: 56px;
-    padding-top: 6px;
     background: #ffffff;
     border: 1px solid var(--equiGreen1);
     box-sizing: border-box;

@@ -4,7 +4,7 @@ import PanelButton, { Variants } from '../panelButton/panelButton';
 import style from './corePanelRight.module.css';
 
 const CorePanelRight: React.FC = () => {
-    const { modulePanels, setActivePanel, activePanel, isPanelActive } = usePanels('right');
+    const { modulePanels, setActivePanel, activePanel, isPanelActive, panelUI } = usePanels('right');
     const [panels, setPanels] = useState<Panel[]>([]);
 
     useEffect(() => {
@@ -14,10 +14,12 @@ const CorePanelRight: React.FC = () => {
     const PanelContent = panels.find((panel) => panel.key === activePanel)?.component;
     return (
         <>
-            <div className={`${style.wrapper} ${isPanelActive ? style.active : ''}`}>
-                <div className={style.drawer}>{activePanel && PanelContent ? <PanelContent /> : <div></div>}</div>
+            <div className={`${style.wrapper} ${isPanelActive ? style.active : ''}`} style={panelUI.panelWrapper}>
+                <div className={style.drawer} style={panelUI.panel}>
+                    {activePanel && PanelContent ? <PanelContent /> : <div></div>}
+                </div>
 
-                <div className={style.buttonContainer}>
+                <div className={style.buttonContainer} style={panelUI.panelButton}>
                     {panels.map((panel: Panel, i) => {
                         const Icon = panel.icon;
                         return (
