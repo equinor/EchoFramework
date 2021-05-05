@@ -6,8 +6,6 @@ export interface MediatorProps {
     options: LoadingModuleOptions;
 }
 
-export interface AppLoading {}
-
 export const Mediator: React.FC<MediatorProps> = ({ options }) => {
     useEffect(() => {
         const { connect, disconnect } = startLoadingModules(options);
@@ -15,7 +13,7 @@ export const Mediator: React.FC<MediatorProps> = ({ options }) => {
             initializeModules(loaded, error, modules);
         };
         connect(notifier);
-        return () => disconnect(notifier);
+        return (): void => disconnect(notifier);
     }, []);
     return null;
 };
