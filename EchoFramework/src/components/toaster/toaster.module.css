@@ -8,3 +8,20 @@
     right: -5px;
     padding: 5px !important;
 }
+
+.toastersSection {
+    height: auto;
+    position: absolute;
+    display: grid;
+    grid-auto-rows: 32px;
+    align-items: start;
+    grid-gap: 24px;
+    bottom: 8px;
+    left: 8px;
+}
+
+.toastersSection > div {
+    position: relative;
+    height: 32px;
+    width: fit-content;
+}
