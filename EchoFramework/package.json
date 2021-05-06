@@ -25,12 +25,12 @@
         "minor": "npm version minor"
     },
     "peerDependencies": {
+        "@equinor/echo-components": "*",
+        "@equinor/echo-core": "*",
+        "@equinor/eds-core-react": "*",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-router-dom": "^5.2.0",
-        "@equinor/echo-core": "*",
-        "@equinor/echo-components": "*",
-        "@equinor/eds-core-react": "*",
         "styled-components": "^5.2.1"
     },
     "devDependencies": {
@@ -38,7 +38,7 @@
         "@babel/preset-env": "^7.12.11",
         "@babel/preset-react": "^7.12.10",
         "@equinor/echo-components": "0.0.11",
-        "@equinor/echo-core": "^0.1.25",
+        "@equinor/echo-core": "^0.2.1",
         "@equinor/echo-scripts": "^0.1.5",
         "@equinor/echo-utils": "0.0.6",
         "@equinor/eds-core-react": "^0.8.5",
