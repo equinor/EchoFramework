@@ -14,7 +14,7 @@ type DefaultAccordionItemProps = {
     children: React.ReactChild | React.ReactChild[];
 };
 
-const { AccordionItem, AccordionHeader, AccordionHeaderTitle, AccordionPanel } = Accordion;
+const { Item, Header, HeaderTitle, Panel } = Accordion;
 
 const DefaultAccordionItem: React.FC<DefaultAccordionItemProps> = ({
     isExpanded,
@@ -26,27 +26,27 @@ const DefaultAccordionItem: React.FC<DefaultAccordionItemProps> = ({
     children
 }: DefaultAccordionItemProps) => {
     return (
-        <AccordionItem
+        <Item
             className={style.appMenuAccordionItem}
             isExpanded={isExpanded}
             onClick={(): void => {
                 handleClick();
             }}
         >
-            <AccordionHeader className={style.appMenuAccordionItemHeader}>
+            <Header className={style.appMenuAccordionItemHeader}>
                 <Icon
                     color={themeConst.asBuilt}
                     title={iconTitle}
                     name={iconName}
                     className={style.accordionIconLeft}
                 />
-                <AccordionHeaderTitle>
+                <HeaderTitle>
                     {title}
                     <div className={style.accordionSubHeader}>{subtitle}</div>
-                </AccordionHeaderTitle>
-            </AccordionHeader>
-            <AccordionPanel>{isExpanded && children}</AccordionPanel>
-        </AccordionItem>
+                </HeaderTitle>
+            </Header>
+            <Panel>{isExpanded && children}</Panel>
+        </Item>
     );
 };
 
