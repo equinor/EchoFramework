@@ -1,11 +1,9 @@
-import EchoCore, { BaseError, EchoEnv } from '@equinor/echo-core';
+import { BaseError } from '@equinor/echo-base';
+import EchoCore, { EchoEnv } from '@equinor/echo-core';
 
 export const baseApiUrl = EchoEnv.env().REACT_APP_API_URL;
 
-export async function request<T>(
-    url: string,
-    requestType: T
-): Promise<T> {
+export async function request<T>(url: string, requestType: T): Promise<T> {
     const response: Response = await EchoCore.EchoClient.fetch(url);
     const contentType = response.headers.get('content-type');
     if (
@@ -16,7 +14,7 @@ export async function request<T>(
         try {
             requestType = JSON.parse(await response.text());
         } catch (exception) {
-            throw new BaseError({message: 'Could not parse JSON', exception});
+            throw new BaseError({ message: 'Could not parse JSON', exception });
         }
     } else if (
         (response.status === 200 || response.status === 202) &&
