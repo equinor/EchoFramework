@@ -1,4 +1,4 @@
-import { Plant, setSelectedPlant } from '@equinor/echo-core';
+import { EchoSettings, Plant } from '@equinor/echo-core';
 
 /**
  * Callback function to be used with the event listener for changing plants.
@@ -7,7 +7,7 @@ import { Plant, setSelectedPlant } from '@equinor/echo-core';
  * @return {*}  {Promise<void>}
  */
 export const handlePlantChanged = async (newSelectedPlant: Plant): Promise<void> => {
-    setSelectedPlant({
+    EchoSettings.plant.setSelectedPlant({
         instCode: newSelectedPlant.instCode,
         plantName: newSelectedPlant.description,
         sapPlantId: newSelectedPlant.sapPlantId,

@@ -4,7 +4,7 @@ import { Toaster } from '../../types/toaster';
 import style from './toaster.module.css';
 
 const Toaster: React.FC<Toaster> = ({ toast, numberOfToasts, toastNumber, onClose }: Toaster) => {
-    const { SnackbarAction } = Snackbar;
+    const { Action } = Snackbar;
 
     return (
         <Snackbar leftAlignFrom={'0'} open={true} onClose={onClose} className={style.toaster}>
@@ -15,11 +15,11 @@ const Toaster: React.FC<Toaster> = ({ toast, numberOfToasts, toastNumber, onClos
             )}
             {toast.message}
             {onclose && (
-                <SnackbarAction>
+                <Action>
                     <Button variant="ghost" onClick={onClose}>
                         close
                     </Button>
-                </SnackbarAction>
+                </Action>
             )}
         </Snackbar>
     );

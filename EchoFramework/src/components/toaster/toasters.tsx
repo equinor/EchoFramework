@@ -1,7 +1,7 @@
 import { EchoEvents } from '@equinor/echo-base';
 import { useEventSubscriber } from '@equinor/echo-core';
 import React, { useState } from 'react';
-import { Toast } from '../..';
+import Toast from '../../components/toaster/toaster';
 import { ToasterEvent } from '../../types/toasterEvent';
 import { ToasterMessage } from '../../types/toasterMessage';
 import style from './toaster.module.css';
