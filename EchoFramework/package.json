@@ -25,9 +25,9 @@
         "minor": "npm version minor"
     },
     "peerDependencies": {
-        "@equinor/echo-components": "*",
-        "@equinor/echo-core": "*",
-        "@equinor/eds-core-react": "*",
+        "@equinor/echo-components": "^0.1.1",
+        "@equinor/echo-core": "^0.2.94",
+        "@equinor/eds-core-react": "^0.11.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-router-dom": "^5.2.0",
