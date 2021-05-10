@@ -7,7 +7,7 @@ interface AppLinksProps {
     isHome?: boolean;
 }
 
-const AppLinks: React.FC<AppLinksProps> = ({ isHome }: AppLinksProps) => {
+export const AppLinks: React.FC<AppLinksProps> = ({ isHome }: AppLinksProps) => {
     const appLinks = useAppLinks(isHome);
     return (
         <div className={style.AppBar}>
@@ -17,5 +17,3 @@ const AppLinks: React.FC<AppLinksProps> = ({ isHome }: AppLinksProps) => {
         </div>
     );
 };
-
-export default AppLinks;

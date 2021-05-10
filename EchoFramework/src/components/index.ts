@@ -1,3 +1,4 @@
+export * from './appLinks';
 export * from './containers';
 export * from './mediator';
 export * from './pageMenu';

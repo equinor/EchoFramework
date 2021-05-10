@@ -1,6 +1,7 @@
 import { Panel, usePanels } from '@equinor/echo-core';
 import React, { useEffect, useState } from 'react';
 import PanelButton, { Variants } from '../panelButton/panelButton';
+import { CoreIcon } from './corePanelIcon';
 import style from './corePanelLeft.module.css';
 
 const CorePanelLeft: React.FC = () => {
@@ -35,7 +36,7 @@ const CorePanelLeft: React.FC = () => {
                                 active={activePanel !== '' && activePanel === panel.key}
                                 className={`${style.button}`}
                             >
-                                <Icon />
+                                {typeof panel.icon === 'string' ? <CoreIcon name={panel.icon} /> : <Icon />}
                             </PanelButton>
                         );
                     })}

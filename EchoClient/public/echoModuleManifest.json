@@ -1,9 +1,20 @@
+
+[{
+    "name": "Demo App",
+    "key": "demo1",
+    "shortName": "demo1",
+    "fileUri": "/module-bundle-demo1.js",
+    "path": "/demo1",
+    "requireRef": "app",
+    "version": "0.0.1"
+},
 {
-    "name": "echo-app-template",
-    "key": "eat",
-    "shortName": "eat",
-    "fileUri": "/module-bundle.js",
-    "path": "eat",
+    "name": "Demo App2",
+    "key": "demo2",
+    "shortName": "demo2",
+    "fileUri": "/module-bundle-demo2.js",
+    "path": "/demo2",
     "requireRef": "app",
     "version": "0.0.1"
 }
+]

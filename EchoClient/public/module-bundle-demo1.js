@@ -231,7 +231,7 @@
             {
                 className: style.wrapper
             },
-            /*#__PURE__*/ React__default['default'].createElement('h1', null, 'Echo App Template woohooo'),
+            /*#__PURE__*/ React__default['default'].createElement('h1', null, 'Echo App Template - Demo1'),
             /*#__PURE__*/ React__default['default'].createElement(
                 'p',
                 null,
@@ -242,7 +242,7 @@
     };
 
     function setup(api) {
-        api.registerApp(App);
+        api.registerApp(App, { params: '', homeScreen: true });
     }
 
     exports.setup = setup;

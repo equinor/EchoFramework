@@ -1,15 +1,29 @@
 import { LoadingModuleOptions } from '@equinor/echo-base';
 import '@equinor/echo-components/dist/index';
 import EchoCore, { createEchoAppModuleApi } from '@equinor/echo-core';
-import { EchoContent, EchoEventHandler, EchoRouter, mainMenu, Mediator, searchPanel } from '@equinor/echo-framework';
+import {
+    DefaultLayout,
+    EchoContent,
+    EchoEventHandler,
+    EchoRoute,
+    EchoRouter,
+    mainMenu,
+    Mediator,
+    searchPanel
+} from '@equinor/echo-framework';
+import { Icon } from '@equinor/eds-core-react';
+import * as Icons from '@equinor/eds-icons';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Switch } from 'react-router';
 import { BrowserRouter, Redirect, Route } from 'react-router-dom';
+import { Home } from './components/Home/Home';
 import { Legend } from './components/legend';
 
-export const Not: React.FC = () => {
-    return <h1>Module not found</h1>;
+const useEdsIcon = (): void => {
+    Icon.add({
+        ...Icons
+    });
 };
 
 const Echo: React.FC = (): JSX.Element => {
@@ -17,7 +31,7 @@ const Echo: React.FC = (): JSX.Element => {
         leftPanel: searchPanel,
         rightPanel: mainMenu
     });
-
+    useEdsIcon();
     const moduleOptions: LoadingModuleOptions = {
         createApi: createEchoAppModuleApi(),
         dependencies: {
@@ -29,9 +43,8 @@ const Echo: React.FC = (): JSX.Element => {
         fetchModules: () => {
             return new Promise((resolve, rejects) => {
                 fetch('./echoModuleManifest.json').then((response) => {
-                    response.json().then((manifest) => {
-                        const modules = [manifest];
-                        resolve(modules);
+                    response.json().then((manifests) => {
+                        resolve(manifests);
                     });
                 });
             });
@@ -46,7 +59,7 @@ const Echo: React.FC = (): JSX.Element => {
                     <EchoEventHandler>
                         <EchoContent Legend={Legend}>
                             <Switch>
-                                <Route exact path={'/'} component={Not} />
+                                <EchoRoute path={'/'} component={Home} layout={DefaultLayout} />
                                 <EchoRouter />
                                 <Route render={(): JSX.Element => <Redirect to="/" />} />
                             </Switch>
