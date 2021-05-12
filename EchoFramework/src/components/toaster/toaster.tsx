@@ -1,7 +1,15 @@
 import { Button, Chip, Snackbar } from '@equinor/eds-core-react';
 import React from 'react';
-import { Toaster } from '../../types/toaster';
+import { ToasterMessage } from '../../types/toasterMessage';
 import style from './toaster.module.css';
+
+
+export interface Toaster {
+    toastNumber: number;
+    toast: ToasterMessage;
+    numberOfToasts: number;
+    onClose?: () => void;
+}
 
 const Toaster: React.FC<Toaster> = ({ toast, numberOfToasts, toastNumber, onClose }: Toaster) => {
     const { Action } = Snackbar;
@@ -14,7 +22,7 @@ const Toaster: React.FC<Toaster> = ({ toast, numberOfToasts, toastNumber, onClos
                 </Chip>
             )}
             {toast.message}
-            {onclose && (
+            {onClose && (
                 <Action>
                     <Button variant="ghost" onClick={onClose}>
                         close
