@@ -1,4 +1,5 @@
-import { EchoEvents, eventHub, Plant, setActiveModulePanels } from '@equinor/echo-core';
+import { eventHub } from '@equinor/echo-base';
+import { EchoEvents, Plant, setActiveModulePanels } from '@equinor/echo-core';
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { handlePlantChanged } from '../services/eventCallbacks/plantChanged';

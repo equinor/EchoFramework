@@ -10,7 +10,7 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@equinor/echo-base": "^0.2.92",
+        "@equinor/echo-base": "^0.2.97",
         "@equinor/echo-components": "0.0.12",
         "@equinor/echo-core": "0.2.92",
         "@equinor/echo-framework": "0.0.53",

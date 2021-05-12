@@ -1,5 +1,6 @@
+import { eventHub } from '@equinor/echo-base';
 import { Dropdown } from '@equinor/echo-components';
-import { EchoEvents, eventHub, Plant, usePlants, usePlantSettings } from '@equinor/echo-core';
+import { EchoEvents, Plant, usePlants, usePlantSettings } from '@equinor/echo-core';
 import React, { useState } from 'react';
 import { getFallbackPlantList } from '../../services/api/plantsFallbackData';
 
