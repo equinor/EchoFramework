@@ -19,7 +19,7 @@ jobs:
                   node-version: ${{ matrix.node-version }}
             - name: npm install, build
               run: |
-                  cd ./EchoFramework
+                  cd ./packages/EchoFramework
                   npm install
                   npm run build
             - name: npm publish
