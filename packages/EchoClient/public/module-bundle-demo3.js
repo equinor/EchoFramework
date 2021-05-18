@@ -231,7 +231,7 @@
             {
                 className: style.wrapper
             },
-            /*#__PURE__*/ React__default['default'].createElement('h1', null, 'Echo App Wohooo'),
+            /*#__PURE__*/ React__default['default'].createElement('h1', null, 'Echo Settings'),
             /*#__PURE__*/ React__default['default'].createElement(
                 'p',
                 null,
@@ -243,7 +243,7 @@
     const panels = [{ panelType: 'left', component: App, key: 'demo3', icon: 'settings', label: 'Demo3' }];
 
     function setup(api) {
-        api.registerApp(App, { params: '', icon: 'home', homeScreen: true, panels });
+        api.registerApp(App, { params: '', icon: 'settings', panels });
     }
 
     exports.setup = setup;

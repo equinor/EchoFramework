@@ -1,4 +1,4 @@
-import { AppLinks, EchoLogo, Footer } from '@equinor/echo-framework';
+import { AppLinks, EchoLogo, Footer, PlantSelector } from '@equinor/echo-framework';
 import React from 'react';
 import placeholderHomeImage from '../../images/frontpage-brand-placeholder.jpg';
 import style from './home.module.css';
@@ -9,9 +9,8 @@ export const Home: React.FC = () => (
             <div>
                 <EchoLogo />
             </div>
-            <div>
-                <h1 className={style.heading}>Echo Client </h1>
-            </div>
+
+            <PlantSelector variant="compact" />
         </div>
         <AppLinks isHome={true} />
         <div className={style.brandSliderContainer}>

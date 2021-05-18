@@ -1,28 +1,28 @@
 
 [{
-    "name": "Demo App",
-    "key": "demo1",
-    "shortName": "demo1",
+    "name": "Shapes",
+    "key": "sh",
+    "shortName": "sh",
     "fileUri": "/module-bundle-demo1.js",
-    "path": "/demo1",
+    "path": "/shapes",
     "requireRef": "app",
     "version": "0.0.1"
 },
 {
-    "name": "Demo App2",
-    "key": "demo2",
-    "shortName": "demo2",
+    "name": "WorK",
+    "key": "of",
+    "shortName": "of",
     "fileUri": "/module-bundle-demo2.js",
-    "path": "/demo2",
+    "path": "/work",
     "requireRef": "app",
     "version": "0.0.1"
 },
 {
-    "name": "Demo App3",
-    "key": "demo3",
-    "shortName": "demo3",
+    "name": "Demo\n Settings",
+    "key": "ds",
+    "shortName": "ds",
     "fileUri": "/module-bundle-demo3.js",
-    "path": "/demo3",
+    "path": "/settings",
     "requireRef": "app",
     "version": "0.0.1",
     "private": true

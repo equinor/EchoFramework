@@ -13,7 +13,11 @@
     display: flex;
     flex: 1 1;
     flex-flow: column-reverse;
-    min-height: 444px;
+    max-height: 350px;
     margin: 0;
     width: 100%;
+    position: fixed;
+    bottom: 55px;
+    overflow: hidden;
+    object-fit: cover;
 }

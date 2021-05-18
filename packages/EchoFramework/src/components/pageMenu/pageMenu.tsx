@@ -2,6 +2,7 @@ import EchoCore, { usePanels, usePlantSettings } from '@equinor/echo-core';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DefaultAccordionItem from './defaultAccordionItem';
+import ApplicationList from './Navigation/applicationList';
 import style from './pageMenu.module.css';
 import PageMenuDrawerItem from './pageMenuDrawerItem';
 import Settings from './settings/settings';
@@ -57,6 +58,15 @@ const PageMenu: React.FC<PageMenuProps> = ({ trackEventOpenExternalLink, isSynci
                     <Settings trackEventOpenExternalLink={trackEventOpenExternalLink} isDisabled={isSyncing} />
                 </DefaultAccordionItem>
 
+                <DefaultAccordionItem
+                    isExpanded={expandedAccordion === 'Apps'}
+                    handleClick={(): void => setExpandedAccordion('Apps')}
+                    title="Apps"
+                    iconName="apps"
+                    iconTitle="Applications"
+                >
+                    <ApplicationList />
+                </DefaultAccordionItem>
                 <PageMenuDrawerItem
                     externalLink={{
                         link: 'https://statoilsrm.sharepoint.com/sites/Echo/SitePages/How-to-use-Echo.aspx',
