@@ -1,8 +1,11 @@
 import echoCore, { Panel, usePanels } from '@equinor/echo-core';
 import React, { memo, useEffect, useState } from 'react';
+import { edsIcons } from '../../icons/edsIons';
 import PanelButton, { Variants } from '../panelButton/panelButton';
 import { CoreIcon } from './corePanelIcon';
 import style from './corePanelRight.module.css';
+
+edsIcons();
 
 const CorePanelRight: React.FC = () => {
     const { modulePanels, setActivePanel, activePanel, isPanelActive, panelUI } = usePanels('right');
@@ -50,3 +53,6 @@ const CorePanelRight: React.FC = () => {
 };
 
 export default memo(CorePanelRight);
+function useEds() {
+    throw new Error('Function not implemented.');
+}

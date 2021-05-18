@@ -11,7 +11,7 @@ interface FooterProps {
     footerType?: FooterType;
 }
 
-const Footer: React.FC<FooterProps> = ({ footerType }: FooterProps) => {
+export const Footer: React.FC<FooterProps> = ({ footerType }: FooterProps) => {
     const tosFooter = footerType === FooterType.tos;
 
     return (
@@ -19,8 +19,9 @@ const Footer: React.FC<FooterProps> = ({ footerType }: FooterProps) => {
             <p className={style.footerDisclaimer}>
                 All information is proprietary of Equinor: © {new Date().getFullYear()} Equinor ASA
             </p>
-            <FooterLogo/>
+            <div className={style.footerLogo}>
+                <FooterLogo />
+            </div>
         </footer>
     );
 };
-export default Footer;

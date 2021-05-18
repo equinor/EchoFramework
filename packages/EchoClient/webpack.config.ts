@@ -5,7 +5,7 @@ import path from 'path';
 
 const webpackConfig = {
     entry: ['babel-polyfill', 'react-hot-loader/patch', './src/index.tsx'],
-    mode: 'development',
+    // mode: 'development',
     devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -53,6 +53,14 @@ const webpackConfig = {
             {
                 test: /\.svg$/,
                 use: ['@svgr/webpack', 'url-loader']
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader'
+                    }
+                ]
             }
         ]
     },

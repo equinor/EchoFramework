@@ -1,0 +1,19 @@
+.wrapper {
+    padding-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.heading {
+    padding-left: 18px;
+}
+
+.brandSliderContainer {
+    display: flex;
+    flex: 1 1;
+    flex-flow: column-reverse;
+    min-height: 444px;
+    margin: 0;
+    width: 100%;
+}

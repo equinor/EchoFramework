@@ -16,5 +16,15 @@
     "path": "/demo2",
     "requireRef": "app",
     "version": "0.0.1"
+},
+{
+    "name": "Demo App3",
+    "key": "demo3",
+    "shortName": "demo3",
+    "fileUri": "/module-bundle-demo3.js",
+    "path": "/demo3",
+    "requireRef": "app",
+    "version": "0.0.1",
+    "private": true
 }
 ]

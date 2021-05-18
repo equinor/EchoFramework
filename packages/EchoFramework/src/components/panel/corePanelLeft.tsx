@@ -1,8 +1,11 @@
 import { Panel, usePanels } from '@equinor/echo-core';
 import React, { useEffect, useState } from 'react';
+import { edsIcons } from '../../icons/edsIons';
 import PanelButton, { Variants } from '../panelButton/panelButton';
 import { CoreIcon } from './corePanelIcon';
 import style from './corePanelLeft.module.css';
+
+edsIcons();
 
 const CorePanelLeft: React.FC = () => {
     const { modulePanels, setActivePanel, activePanel, isPanelActive, panelUI } = usePanels();

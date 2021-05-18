@@ -1,23 +1,14 @@
 import { LoadingModuleOptions } from '@equinor/echo-base';
 import '@equinor/echo-components/dist/index';
 import EchoCore, { createEchoAppModuleApi } from '@equinor/echo-core';
-import {
-    DefaultLayout,
-    EchoContent,
-    EchoEventHandler,
-    EchoRoute,
-    EchoRouter,
-    mainMenu,
-    Mediator,
-    searchPanel
-} from '@equinor/echo-framework';
+import { EchoContent, EchoEventHandler, EchoRouter, mainMenu, Mediator, searchPanel } from '@equinor/echo-framework';
 import { Icon } from '@equinor/eds-core-react';
 import * as Icons from '@equinor/eds-icons';
+import { createBrowserHistory } from 'history';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Switch } from 'react-router';
-import { BrowserRouter, Redirect, Route } from 'react-router-dom';
-import { Home } from './components/Home/Home';
+import { Redirect, Route, Router, Switch } from 'react-router-dom';
+import { Home } from './components/home/home';
 import { Legend } from './components/legend';
 
 const useEdsIcon = (): void => {
@@ -25,6 +16,8 @@ const useEdsIcon = (): void => {
         ...Icons
     });
 };
+
+const history = createBrowserHistory();
 
 const Echo: React.FC = (): JSX.Element => {
     const isAuthenticated = EchoCore.useEchoSetup({
@@ -54,18 +47,18 @@ const Echo: React.FC = (): JSX.Element => {
     return (
         <>
             {isAuthenticated && (
-                <BrowserRouter>
+                <Router history={history}>
                     <Mediator options={moduleOptions} />
                     <EchoEventHandler>
                         <EchoContent Legend={Legend}>
                             <Switch>
-                                <EchoRoute path={'/'} component={Home} layout={DefaultLayout} />
+                                <Route exact path={'/'} component={Home} />
                                 <EchoRouter />
                                 <Route render={(): JSX.Element => <Redirect to="/" />} />
                             </Switch>
                         </EchoContent>
                     </EchoEventHandler>
-                </BrowserRouter>
+                </Router>
             )}
         </>
     );

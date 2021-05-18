@@ -1,5 +1,8 @@
 .AppBar {
-    margin: 0 auto;
-    width: fit-content;
-    margin-bottom: 48px;
+    width: 40%;
+    margin: 0 auto 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
 }

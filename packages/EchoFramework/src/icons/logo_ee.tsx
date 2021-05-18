@@ -1,7 +1,14 @@
 import React, { FunctionComponent } from 'react';
 
-export const icon: FunctionComponent<React.SVGProps<SVGSVGElement>> = () => (
-    <svg width="25" height="22" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const icon: FunctionComponent<React.SVGProps<SVGSVGElement>> = ({ className }) => (
+    <svg
+        width="25"
+        height="22"
+        viewBox="0 0 25 22"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+    >
         <path
             fillRule="evenodd"
             clipRule="evenodd"

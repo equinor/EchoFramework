@@ -1,0 +1,5 @@
+{
+    "react": "../EchoFramework/node_modules/react",
+    "@equinor/echo-core": "../EchoFramework/node_modules/@equinor/echo-core",
+   
+}

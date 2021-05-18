@@ -5,11 +5,10 @@ interface Props {
     className?: string;
 }
 
-const EchoLogo: React.FC<Props> = ({ className }: Props) => {
+export const EchoLogo: React.FC<Props> = ({ className }: Props) => {
     return (
         <span className={`${className} ${style.echoLogo}`}>
             Echo<span className={style.logoSubTitle}>inField</span>
         </span>
     );
 };
-export default EchoLogo;
