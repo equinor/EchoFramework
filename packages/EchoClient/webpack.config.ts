@@ -5,12 +5,12 @@ import path from 'path';
 
 const webpackConfig = {
     entry: ['babel-polyfill', 'react-hot-loader/patch', './src/index.tsx'],
-    // mode: 'development',
+    mode: 'production',
     devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'assets/echo.bundle.js',
-        // chunkFilename: 'assets/[name].[contenthash].chunk.js',
+        filename: '[name].echo.bundle.js',
+        chunkFilename: 'assets/[name].[contenthash].chunk.js',
         publicPath: '/'
     },
     resolve: {
@@ -86,13 +86,13 @@ const webpackConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './public/index.html')
         })
-    ]
-    // optimization: {
-    // splitChunks: {
-    //     chunks: 'all'
-    // },
-    //     minimize: true
-    // }
+    ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        },
+        minimize: true
+    }
 };
 
 export default webpackConfig;

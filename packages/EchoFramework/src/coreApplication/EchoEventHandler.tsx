@@ -1,7 +1,9 @@
 import { eventHub } from '@equinor/echo-base';
-import { EchoEvents, Plant } from '@equinor/echo-core';
+import { EchoEvents, Plant, setActiveModulePanels } from '@equinor/echo-core';
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { handlePlantChanged } from '../services/eventCallbacks/plantChanged';
+import { getKeyFromPath } from '../utils/eventHandlerUtils';
 
 interface EchoEventHandlerProps {
     children: React.ReactNode;
@@ -13,8 +15,7 @@ interface EchoEventHandlerProps {
  * @return {*}
  */
 const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEventHandlerProps): JSX.Element => {
-    // const history = useHistory();
-    // console.info(history);
+    const history = useHistory();
 
     useEffect(() => {
         const unsubscribe = eventHub.subscribe(EchoEvents.PlantChanged, (newSelectedPlant: Plant) =>
@@ -25,17 +26,21 @@ const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEve
         };
     });
 
-    // useEffect(() => {
-    //     const unListen = history.listen((location) => {
-    //         const { pathname } = location;
-    //         const pathKey = getKeyFromPath(pathname);
-    //         // const { instCode, tagNo, search } = getLinkParams();
-    //         setActiveModulePanels(pathKey);
-    //     });
-    //     return (): void => {
-    //         unListen();
-    //     };
-    // }, [history]);
+    useEffect(() => {
+        if (!history) {
+            console.error('No react history found!', history);
+            return;
+        }
+        const unListen = history.listen((location) => {
+            const { pathname } = location;
+            const pathKey = getKeyFromPath(pathname);
+            // const { instCode, tagNo, search } = getLinkParams();
+            setActiveModulePanels(pathKey);
+        });
+        return (): void => {
+            unListen();
+        };
+    }, [history]);
 
     return <>{children}</>;
 };

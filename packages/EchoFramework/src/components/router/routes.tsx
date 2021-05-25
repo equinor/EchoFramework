@@ -5,7 +5,7 @@ import { useLayout } from './useLayout';
 
 type EchoRouterProps = RouteRegistration;
 
-export const EchoRouter: React.FC = (): JSX.Element => {
+export const EchoRoutes: React.FC = (): JSX.Element => {
     const routes = useRoutes();
     const getLayout = useLayout();
     return (

@@ -1,15 +1,16 @@
+import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
 import image from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import url from '@rollup/plugin-url';
 import assets from 'postcss-assets';
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
 import del from 'rollup-plugin-delete';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
+const peerDeps = Object.keys(pkg.peerDependencies || {});
 const extensions = ['.jsx', '.js', '.tsx', '.ts'];
 export default [
     {
@@ -18,19 +19,10 @@ export default [
         output: {
             dir: 'dist/',
             format: 'cjs',
-            exports: 'named'
+            exports: 'named',
+            plugins: [getBabelOutputPlugin({ presets: ['@babel/preset-env'] })]
         },
-        external: [
-            'react',
-            'react-dom',
-            'react-router-dom',
-            '@equinor/echo-core',
-            '@equinor/echo-base',
-            '@equinor/echo-components',
-            '@equinor/echo-utils',
-            '@equinor/eds-core-react',
-            'styled-components'
-        ],
+        external: peerDeps,
         plugins: [
             del({ targets: 'dist/*', runOnce: true }),
             json(),
@@ -54,8 +46,9 @@ export default [
             }),
             babel({
                 babelrc: false,
-                presets: [['@babel/preset-env', { modules: false }], ['@babel/preset-react']],
+                presets: ['@babel/preset-react'],
                 extensions,
+                babelHelpers: 'bundled',
                 exclude: './node_modules/**'
             }),
             url(),

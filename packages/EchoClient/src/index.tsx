@@ -1,23 +1,18 @@
 import { LoadingModuleOptions } from '@equinor/echo-base';
 import '@equinor/echo-components/dist/index';
 import EchoCore, { createEchoAppModuleApi } from '@equinor/echo-core';
-import { EchoContent, EchoEventHandler, EchoRouter, mainMenu, Mediator, searchPanel } from '@equinor/echo-framework';
+import { EchoRouter, mainMenu, Mediator, searchPanel } from '@equinor/echo-framework';
 import { Icon } from '@equinor/eds-core-react';
 import * as Icons from '@equinor/eds-icons';
-import { createBrowserHistory } from 'history';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Redirect, Route, Router, Switch } from 'react-router-dom';
-import { Home } from './components/home/home';
-import { Legend } from './components/legend';
+import { EchoApp } from './app';
 
 const useEdsIcon = (): void => {
     Icon.add({
         ...Icons
     });
 };
-
-const history = createBrowserHistory();
 
 const Echo: React.FC = (): JSX.Element => {
     const isAuthenticated = EchoCore.useEchoSetup({
@@ -47,18 +42,10 @@ const Echo: React.FC = (): JSX.Element => {
     return (
         <>
             {isAuthenticated && (
-                <Router history={history}>
+                <EchoRouter>
                     <Mediator options={moduleOptions} />
-                    <EchoEventHandler>
-                        <EchoContent Legend={Legend}>
-                            <Switch>
-                                <Route exact path={'/'} component={Home} />
-                                <EchoRouter />
-                                <Route render={(): JSX.Element => <Redirect to="/" />} />
-                            </Switch>
-                        </EchoContent>
-                    </EchoEventHandler>
-                </Router>
+                    <EchoApp />
+                </EchoRouter>
             )}
         </>
     );

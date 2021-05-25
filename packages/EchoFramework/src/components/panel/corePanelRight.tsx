@@ -1,4 +1,4 @@
-import echoCore, { Panel, usePanels } from '@equinor/echo-core';
+import { ECHO_CORE_MAIN, Panel, usePanels } from '@equinor/echo-core';
 import React, { memo, useEffect, useState } from 'react';
 import { edsIcons } from '../../icons/edsIons';
 import PanelButton, { Variants } from '../panelButton/panelButton';
@@ -31,7 +31,7 @@ const CorePanelRight: React.FC = () => {
                                 key={i}
                                 label={panel.label}
                                 variant={
-                                    panel.key === echoCore.ECHO_CORE_MAIN
+                                    panel.key === ECHO_CORE_MAIN
                                         ? Variants.NotificationButton
                                         : Variants.OpenCloseButton
                                 }

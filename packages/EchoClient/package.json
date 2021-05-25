@@ -19,9 +19,9 @@
         "@equinor/echo-utils": "0.0.9",
         "@equinor/eds-core-react": "^0.9.2",
         "react": "file:../EchoFramework/node_modules/react",
-        "react-dom": "file:../EchoFramework/node_modules/react-dom",
-        "react-router": ">=5.2.0",
-        "react-router-dom": "file:../EchoFramework/node_modules/react-router-dom",
+        "react-dom": "^17.0.2",
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.2.0",
         "styled-components": "^5.2.1",
         "url-loader": "^4.1.1"
     },
