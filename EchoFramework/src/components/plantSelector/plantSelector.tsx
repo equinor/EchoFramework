@@ -5,6 +5,7 @@ import { getFallbackPlantList } from '../../services/api/plantsFallbackData';
 
 interface PlantSelectorProps {
     variant?: 'compact' | 'default';
+    maxCharacterCount?: number;
     isDisabled?: boolean;
 }
 
@@ -16,7 +17,11 @@ interface PlantSelectorProps {
  * }
  * @return {*}
  */
-const PlantSelector: React.FC<PlantSelectorProps> = ({ variant, isDisabled }: PlantSelectorProps) => {
+const PlantSelector: React.FC<PlantSelectorProps> = ({
+    variant,
+    maxCharacterCount,
+    isDisabled
+}: PlantSelectorProps) => {
     const { instCode: selectedPlantCode, plantName: selectedPlant } = usePlantSettings();
     const globalStatePlants = usePlants();
     const plants = globalStatePlants.length > 0 ? globalStatePlants : getFallbackPlantList();
@@ -60,6 +65,7 @@ const PlantSelector: React.FC<PlantSelectorProps> = ({ variant, isDisabled }: Pl
             setSelected={handlePlantSelected}
             isDisabled={isDisabled || !navigator.onLine}
             disabledText="Disabled while syncing or loading data"
+            maxCharacterCount={maxCharacterCount}
             variant={variant ? variant : 'default'}
         />
     );
