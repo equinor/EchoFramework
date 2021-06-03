@@ -26,7 +26,15 @@ const Echo: React.FC = (): JSX.Element => {
             react: require('react'),
             'react-dom': require('react-dom'),
             '@equinor/echo-core': require('@equinor/echo-core'),
-            '@equinor/echo-framework': require('@equinor/echo-framework')
+            '@equinor/echo-framework': require('@equinor/echo-framework'),
+            '@equinor/echo-utils': require('@equinor/echo-utils'),
+            '@equinor/echo-components': require('@equinor/echo-components'),
+            '@equinor/echo-base': require('@equinor/echo-base'),
+            '@equinor/eds-core-react': require('@equinor/eds-core-react'),
+            "three": require('three'),
+            "lodash":  require('lodash'),
+            "@cognite/sdk": require("@cognite/sdk")
+
         },
         fetchModules: () => {
             return new Promise((resolve, rejects) => {

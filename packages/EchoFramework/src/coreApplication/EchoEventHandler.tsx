@@ -18,9 +18,10 @@ const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEve
     const history = useHistory();
 
     useEffect(() => {
-        const unsubscribe = eventHub.subscribe(EchoEvents.PlantChanged, (newSelectedPlant: Plant) =>
-            handlePlantChanged(newSelectedPlant)
-        );
+        const unsubscribe = eventHub.subscribe(EchoEvents.PlantChanged, (newSelectedPlant: Plant) => {
+            handlePlantChanged(newSelectedPlant, history);
+        });
+
         return (): void => {
             unsubscribe();
         };
@@ -34,7 +35,6 @@ const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEve
         const unListen = history.listen((location) => {
             const { pathname } = location;
             const pathKey = getKeyFromPath(pathname);
-            // const { instCode, tagNo, search } = getLinkParams();
             setActiveModulePanels(pathKey);
         });
         return (): void => {

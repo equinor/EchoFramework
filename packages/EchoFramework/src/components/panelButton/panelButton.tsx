@@ -1,8 +1,6 @@
+import { eventHub } from '@equinor/echo-base';
 import { Icon } from '@equinor/eds-core-react';
 import React, { EventHandler, ReactElement, SyntheticEvent, useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
-// import { SystemKey } from '../../../services/offlineSync/offlineSyncSetup';
-// import { RootState } from '../../../store';
 import { themeConst } from '../../theme/themeConst';
 import style from './panelButton.module.css';
 
@@ -34,25 +32,24 @@ const PanelButton: React.FC<PanelButtonProps> = ({
 }: PanelButtonProps) => {
     const isChild = variant === Variants.SimpleButton;
     const isMobile = variant === Variants.MobileButton || variant === Variants.NotificationMobileButton;
-    // const syncingStatuses = useSelector((state: RootState) => state.syncing);
+
     const [isSyncing, setIsSyncing] = useState<boolean>(false);
 
     useEffect(() => {
+        if (variant !== Variants.NotificationButton) return;
         let isMounted = true;
-        // const checkIfSyncing = (): boolean => {
-        //     return (
-        //         Object.keys(syncingStatuses).filter((key) => syncingStatuses[key as SystemKey].syncing === true)
-        //             .length > 0
-        //     );
-        // };
-        // const syncing: boolean = checkIfSyncing();
-        if (isMounted) {
-            setIsSyncing(false);
-        }
+        console.log();
+        const unSubscribeSyncing = eventHub.subscribe('isSyncing', (active: boolean) => {
+            if (isMounted) {
+                setIsSyncing(active);
+            }
+        });
+
         return (): void => {
             isMounted = false;
+            unSubscribeSyncing();
         };
-    }, []);
+    });
 
     const mutateIcon = (buttonVariant: Variants): React.ReactNode => {
         switch (buttonVariant) {

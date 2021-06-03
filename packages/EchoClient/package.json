@@ -11,6 +11,7 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
+        "@cognite/sdk": "^4.1.0",
         "@equinor/echo-base": "file:../EchoFramework/node_modules/@equinor/echo-base",
         "@equinor/echo-components": "file:../EchoFramework/node_modules/@equinor/echo-components",
         "@equinor/echo-core": "file:../EchoFramework/node_modules/@equinor/echo-core",
@@ -18,11 +19,13 @@
         "@equinor/echo-scripts": "^0.1.5",
         "@equinor/echo-utils": "0.0.9",
         "@equinor/eds-core-react": "^0.9.2",
+        "lodash": "^4.17.21",
         "react": "file:../EchoFramework/node_modules/react",
         "react-dom": "^17.0.2",
         "react-router": "^5.2.0",
         "react-router-dom": "^5.2.0",
         "styled-components": "^5.2.1",
+        "three": "^0.129.0",
         "url-loader": "^4.1.1"
     },
     "devDependencies": {

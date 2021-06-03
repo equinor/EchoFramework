@@ -1,4 +1,5 @@
 import { Plant, setSelectedPlant } from '@equinor/echo-core';
+import { History } from 'history';
 
 /**
  * Callback function to be used with the event listener for changing plants.
@@ -6,9 +7,10 @@ import { Plant, setSelectedPlant } from '@equinor/echo-core';
  * @param {Plant} newSelectedPlant
  * @return {*}  {Promise<void>}
  */
-export const handlePlantChanged = async (newSelectedPlant: Plant): Promise<void> => {
+export const handlePlantChanged = async (newSelectedPlant: Plant, history: History<unknown>): Promise<void> => {
     setSelectedPlant({
         ...newSelectedPlant,
         plantName: newSelectedPlant.description
     });
+    history.push('');
 };
