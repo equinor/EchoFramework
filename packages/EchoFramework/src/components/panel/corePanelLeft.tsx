@@ -21,7 +21,7 @@ const CorePanelLeft: React.FC = () => {
         <>
             <div className={`${style.wrapper} ${isPanelActive ? style.active : ''}`} style={panelUI.panelWrapper}>
                 <div className={style.drawer} style={panelUI.panel}>
-                    {activePanel && PanelContent ? <PanelContent /> : <div></div>}
+                    {activePanel && PanelContent ? <PanelContent /> : <></>}
                 </div>
 
                 <div className={style.buttonContainer} style={panelUI.panelButton}>

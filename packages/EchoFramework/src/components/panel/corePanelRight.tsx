@@ -1,8 +1,9 @@
+import { Icon } from '@equinor/echo-components';
 import { ECHO_CORE_MAIN, Panel, usePanels } from '@equinor/echo-core';
 import React, { memo, useEffect, useState } from 'react';
 import { edsIcons } from '../../icons/edsIons';
+import { themeConst } from '../../theme/themeConst';
 import PanelButton, { Variants } from '../panelButton/panelButton';
-import { CoreIcon } from './corePanelIcon';
 import style from './corePanelRight.module.css';
 
 edsIcons();
@@ -20,12 +21,12 @@ const CorePanelRight: React.FC = () => {
         <>
             <div className={`${style.wrapper} ${isPanelActive ? style.active : ''}`} style={panelUI.panelWrapper}>
                 <div className={style.drawer} style={panelUI.panel}>
-                    {activePanel && PanelContent ? <PanelContent /> : <div></div>}
+                    {activePanel && PanelContent ? <PanelContent /> : <></>}
                 </div>
 
                 <div className={style.buttonContainer} style={panelUI.panelButton}>
                     {panels.map((panel: Panel, i) => {
-                        const Icon = panel.icon;
+                        const PanelIcon = panel.icon;
                         return (
                             <PanelButton
                                 key={i}
@@ -42,7 +43,11 @@ const CorePanelRight: React.FC = () => {
                                 }}
                                 className={`${style.button}`}
                             >
-                                {typeof panel.icon === 'string' ? <CoreIcon name={panel.icon} /> : <Icon />}
+                                {typeof panel.icon === 'string' ? (
+                                    <Icon color={themeConst.equiGreen1} name={panel.icon} />
+                                ) : (
+                                    <PanelIcon />
+                                )}
                             </PanelButton>
                         );
                     })}
