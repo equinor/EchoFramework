@@ -1,6 +1,6 @@
 {
     "name": "@equinor/echo-framework",
-    "version": "0.0.69",
+    "version": "0.0.71",
     "description": "Modules and components for EchoWeb, utilizing EchoCore",
     "main": "dist/src/index.js",
     "types": "dist/types/index.d.ts",
@@ -26,7 +26,7 @@
     },
     "peerDependencies": {
         "@equinor/echo-components": "^0.1.4",
-        "@equinor/echo-core": "^0.2.94",
+        "@equinor/echo-core": "^0.2.106",
         "@equinor/eds-core-react": "^0.11.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
@@ -38,7 +38,7 @@
         "@babel/preset-env": "^7.12.11",
         "@babel/preset-react": "^7.12.10",
         "@equinor/echo-components": "^0.1.4",
-        "@equinor/echo-core": "^0.2.94",
+        "@equinor/echo-core": "^0.2.106",
         "@equinor/echo-scripts": "^0.1.5",
         "@equinor/echo-utils": "^0.0.9",
         "@equinor/eds-core-react": "^0.11.1",
