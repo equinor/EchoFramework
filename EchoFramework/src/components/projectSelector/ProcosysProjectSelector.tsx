@@ -6,6 +6,7 @@ import {
     useProcosysProjects
 } from '@equinor/echo-core';
 import React from 'react';
+import { filterProjectsStartsWithFirst } from '../../utils/projectSelectorUtils';
 
 interface ProjectSelectorProps {
     variant?: 'compact' | 'default';
@@ -43,16 +44,12 @@ export const ProjectSelector: React.FC<ProjectSelectorProps> = ({
         }
     };
 
-    const filterProjects = (data: string[], filter: string): string[] => {
-        return data.filter((item) => item.toLowerCase().indexOf(filter.trim().toLowerCase()) > -1);
-    };
-
     return (
         <Dropdown
             showSearch={true}
             selected={selectedProcosysProjectCode}
             data={dropdownProcosysProjects}
-            filterFunc={filterProjects}
+            filterFunc={filterProjectsStartsWithFirst}
             openDownWards={true}
             placeholder="Select ProCoSys project"
             setSelected={handleProcosysProjectSelected}
