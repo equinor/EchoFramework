@@ -34,9 +34,10 @@ export const ProjectSelector: React.FC<ProjectSelectorProps> = ({
     dropdownProcosysProjects.unshift(ALL_PROJECTS);
 
     const handleProcosysProjectSelected = async (projectCode: string): Promise<void> => {
-        const newSelectedProcosysProject = procosysProjects.find(
-            (project: ProcosysProject) => project.projectCode === projectCode
-        );
+        const newSelectedProcosysProject =
+            projectCode === ALL_PROJECTS
+                ? ({ projectCode: ALL_PROJECTS } as ProcosysProject)
+                : procosysProjects.find((project: ProcosysProject) => project.projectCode === projectCode);
         if (newSelectedProcosysProject) {
             setSelectedProcosysProject(newSelectedProcosysProject);
         }
@@ -56,7 +57,7 @@ export const ProjectSelector: React.FC<ProjectSelectorProps> = ({
             placeholder="Select ProCoSys project"
             setSelected={handleProcosysProjectSelected}
             isDisabled={isDisabled || !navigator.onLine}
-            disabledText="Disabled while syncing or loading data"
+            disabledText="Disabled"
             maxCharacterCount={maxCharacterCount}
             variant={variant ? variant : 'default'}
         />
