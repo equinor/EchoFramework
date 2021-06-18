@@ -14,7 +14,7 @@ interface EchoEventHandlerProps {
  * @param {EchoEventHandlerProps} { children }
  * @return {*}
  */
-const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEventHandlerProps): JSX.Element => {
+export const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEventHandlerProps): JSX.Element => {
     const history = useHistory();
 
     useEffect(() => {
@@ -44,5 +44,3 @@ const EchoEventHandler: React.FC<EchoEventHandlerProps> = ({ children }: EchoEve
 
     return <>{children}</>;
 };
-
-export default EchoEventHandler;

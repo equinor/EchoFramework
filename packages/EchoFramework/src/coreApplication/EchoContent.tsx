@@ -17,5 +17,3 @@ export const EchoContent: React.FC<CorePanelsProps> = ({ children, Legend }: Cor
         </>
     );
 };
-
-export default EchoContent;

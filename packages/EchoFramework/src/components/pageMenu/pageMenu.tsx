@@ -22,7 +22,7 @@ interface PageMenuProps {
  * }
  * @return {*}
  */
-const PageMenu: React.FC<PageMenuProps> = ({ trackEventOpenExternalLink, isSyncing }: PageMenuProps) => {
+export const PageMenu: React.FC<PageMenuProps> = ({ trackEventOpenExternalLink, isSyncing }: PageMenuProps) => {
     const { setActivePanel } = usePanels();
     const { instCode: selectedInstCode, plantName: selectedPlantName } = usePlantSettings();
 
@@ -110,5 +110,3 @@ const PageMenu: React.FC<PageMenuProps> = ({ trackEventOpenExternalLink, isSynci
         </div>
     );
 };
-
-export default PageMenu;

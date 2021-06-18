@@ -1,4 +1,4 @@
-import { ToasterMessage } from "./toasterMessage";
+import { ToasterMessage } from './toasterMessage';
 
 export interface Toaster {
     toastNumber: number;

@@ -6,7 +6,7 @@ import style from './toaster.module.css';
 
 let toasterList = [] as Array<ToasterMessage>;
 
-const Toasters: React.FC = () => {
+export const Toasters: React.FC = () => {
     const [count, setCount] = useState(0);
     const [toastsCount, setToastsCount] = useState(toasterList.length);
 

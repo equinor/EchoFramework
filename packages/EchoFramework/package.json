@@ -27,7 +27,7 @@
     },
     "peerDependencies": {
         "@equinor/echo-base": "^0.2.97",
-        "@equinor/echo-components": "^0.1.3",
+        "@equinor/echo-components": "^0.1.4",
         "@equinor/echo-core": "^0.2.98",
         "@equinor/echo-utils": "^0.0.9",
         "@equinor/eds-core-react": "^0.11.1",
@@ -41,7 +41,7 @@
         "@babel/preset-env": "^7.12.11",
         "@babel/preset-react": "^7.12.10",
         "@equinor/echo-base": "^0.2.97",
-        "@equinor/echo-components": "^0.1.3",
+        "@equinor/echo-components": "^0.1.4",
         "@equinor/echo-core": "^0.2.98",
         "@equinor/echo-scripts": "^0.1.5",
         "@equinor/echo-utils": "^0.0.9",
@@ -96,6 +96,6 @@
         "dist/"
     ],
     "dependencies": {
-        "@equinor/echo-base": "0.2.97"
+        "@equinor/echo-base": "^0.2.97"
     }
 }
