@@ -31,3 +31,5 @@ export const Toaster: React.FC<Toaster> = ({ toast, numberOfToasts, toastNumber,
         </Snackbar>
     );
 };
+
+export default Toaster;

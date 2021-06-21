@@ -1,5 +1,5 @@
 import { ECHO_CORE_MAIN, ECHO_CORE_SEARCH, Panel, PanelType } from '@equinor/echo-core';
-import PageMenu from '../components/pageMenu/pageMenu';
+import { PageMenu } from '../components/pageMenu/pageMenu';
 import SearchMenu from '../components/searchMenu/searchMenu';
 import EELogo from '../icons/logo_ee';
 import Search from '../icons/search';

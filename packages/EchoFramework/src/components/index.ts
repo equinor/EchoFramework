@@ -7,6 +7,7 @@ export * from './pageMenu';
 export * from './panel';
 export * from './panelButton';
 export * from './plantSelector';
+export * from './projectSelector';
 export * from './router';
 export * from './searchMenu';
 export * from './toaster';

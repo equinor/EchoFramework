@@ -8,7 +8,10 @@ import { arraysIsEqual } from '@equinor/echo-utils';
  * @param {Plant[]} localStoragePlants
  * @return {*}  {boolean}
  */
- export const checkIsPlantsListUpdated = (apiPlants: ReadonlyArray<Plant>, localStoragePlants: ReadonlyArray<Plant>): boolean => {
+export const checkIsPlantsListUpdated = (
+    apiPlants: ReadonlyArray<Plant>,
+    localStoragePlants: ReadonlyArray<Plant>
+): boolean => {
     if (!localStoragePlants || localStoragePlants.length === 0 || !arraysIsEqual(localStoragePlants, apiPlants)) {
         return true;
     } else {
