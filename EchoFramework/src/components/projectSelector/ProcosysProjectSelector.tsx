@@ -3,10 +3,12 @@ import {
     ProcosysProject,
     setSelectedProcosysProject,
     useProcosysProjectCode,
-    useProcosysProjects
+    useProcosysProjectsData
 } from '@equinor/echo-core';
+import { StarProgress } from '@equinor/eds-core-react';
 import React from 'react';
 import { filterProjectsStartsWithFirst } from '../../utils/projectSelectorUtils';
+import styles from './ProcosysProjectSelector.module.css';
 
 interface ProjectSelectorProps {
     variant?: 'compact' | 'default';
@@ -30,7 +32,7 @@ export const ProjectSelector: React.FC<ProjectSelectorProps> = ({
     isDisabled
 }: ProjectSelectorProps) => {
     const selectedProcosysProjectCode = useProcosysProjectCode();
-    const procosysProjects = useProcosysProjects();
+    const { procosysProjectsHasError, procosysProjects } = useProcosysProjectsData();
     const dropdownProcosysProjects = procosysProjects.map((project) => project.projectCode);
     dropdownProcosysProjects.unshift(ALL_PROJECTS);
 
@@ -44,19 +46,34 @@ export const ProjectSelector: React.FC<ProjectSelectorProps> = ({
         }
     };
 
+    const loadingOrError = procosysProjectsHasError ? (
+        <div>Could not load projects.</div>
+    ) : (
+        <div>
+            Loading projects
+            <StarProgress size={24} className={styles.spinner} />
+        </div>
+    );
+
     return (
-        <Dropdown
-            showSearch={true}
-            selected={selectedProcosysProjectCode}
-            data={dropdownProcosysProjects}
-            filterFunc={filterProjectsStartsWithFirst}
-            openDownWards={true}
-            placeholder="Select ProCoSys project"
-            setSelected={handleProcosysProjectSelected}
-            isDisabled={isDisabled || !navigator.onLine}
-            disabledText="Disabled"
-            maxCharacterCount={maxCharacterCount}
-            variant={variant ? variant : 'default'}
-        />
+        <>
+            {procosysProjects.length === 0 ? (
+                loadingOrError
+            ) : (
+                <Dropdown
+                    showSearch={true}
+                    selected={selectedProcosysProjectCode}
+                    data={dropdownProcosysProjects}
+                    filterFunc={filterProjectsStartsWithFirst}
+                    openDownWards={true}
+                    placeholder="Select ProCoSys project"
+                    setSelected={handleProcosysProjectSelected}
+                    isDisabled={isDisabled || !navigator.onLine}
+                    disabledText="Disabled"
+                    maxCharacterCount={maxCharacterCount}
+                    variant={variant ? variant : 'default'}
+                />
+            )}
+        </>
     );
 };
