@@ -38,7 +38,6 @@ const PanelButton: React.FC<PanelButtonProps> = ({
     useEffect(() => {
         if (variant !== Variants.NotificationButton) return;
         let isMounted = true;
-        console.log();
         const unSubscribeSyncing = eventHub.subscribe('isSyncing', (active: boolean) => {
             if (isMounted) {
                 setIsSyncing(active);
