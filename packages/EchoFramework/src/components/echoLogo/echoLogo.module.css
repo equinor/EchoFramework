@@ -1,0 +1,18 @@
+.echoLogo {
+    display: inline-block;
+    width: 100%;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 56px;
+    color: var(--equiRed1);
+    text-transform: lowercase;
+    text-align: right;
+}
+
+.logoSubTitle {
+    display: block;
+    line-height: 0px;
+    font-size: 20px;
+    padding-bottom: 5px;
+    text-transform: none;
+}

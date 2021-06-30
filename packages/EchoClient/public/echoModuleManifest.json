@@ -1,0 +1,30 @@
+
+[{
+    "name": "Shapes",
+    "key": "sh",
+    "shortName": "sh",
+    "fileUri": "/module-bundle-demo1.js",
+    "path": "/shapes",
+    "requireRef": "app",
+    "version": "0.0.1"
+},
+{
+    "name": "WorK",
+    "key": "of",
+    "shortName": "of",
+    "fileUri": "/module-bundle-demo2.js",
+    "path": "/work",
+    "requireRef": "app",
+    "version": "0.0.1"
+},
+{
+    "name": "Demo\n Settings",
+    "key": "ds",
+    "shortName": "ds",
+    "fileUri": "/module-bundle-demo3.js",
+    "path": "/settings",
+    "requireRef": "app",
+    "version": "0.0.1",
+    "private": true
+}
+]

@@ -1,0 +1,161 @@
+.toolContainer .buttonContainer {
+    width: 88px;
+}
+.toolContainer .buttonContainer button {
+    margin: 0 16px;
+}
+
+.buttonContainer > span {
+    margin-top: 8px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.pageMenuButton {
+    width: 56px;
+    height: 56px;
+    background: #ffffff;
+    border: 1px solid var(--equiGreen1);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pageMenuButton:hover {
+    background-color: var(--equiGreen2);
+    color: var(--hoverIcon);
+}
+
+.pageMenuButton:hover svg {
+    fill: var(--hoverIcon);
+}
+
+.pageMenu .buttonContainer {
+    margin-top: var(--large);
+    margin-right: var(--medium);
+}
+
+.toggleButton {
+    background: var(--toggleInactive);
+    border: 1px solid var(--toggleInactive);
+}
+
+.toggleButton:hover {
+    background: rgba(179, 13, 47, 0.5);
+    border: 1px solid var(--toggleInactive);
+}
+
+.activeButton {
+    background: var(--equiGreen1);
+    border: 2px solid var(--equiGreen1);
+}
+
+.activeButton.toggleButton {
+    background: var(--toggleActive);
+    border: 1px solid var(--toggleActive);
+}
+
+.activeButton.toggleButton:hover {
+    background: rgba(75, 183, 72, 0.5);
+    border: 1px solid var(--toggleActive);
+}
+
+.pageMenu {
+    position: fixed;
+    top: 0;
+    width: 352px;
+    height: 100vh;
+    background-color: #fff;
+    border-left: 2px solid var(--searchBarBackground);
+    transition: all 0.4s ease-in-out;
+    overflow: auto;
+}
+
+.menuTitle {
+    width: 100%;
+    display: inline-block;
+    margin-top: 18px;
+    margin-bottom: 23px;
+    margin-left: var(--small);
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+    color: #000;
+}
+
+@keyframes spinAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinningIcon {
+    animation: spinAnimation 1.5s infinite reverse linear;
+}
+
+@media only screen and (max-width: 415px) {
+    .pageMenu {
+        right: -345px;
+        width: 335px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .pageMenu {
+        width: 305px;
+    }
+
+    .pageMenu .buttonContainer {
+        margin-top: var(--xLarge);
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .pageMenu {
+        width: 285px;
+    }
+
+    .pageMenu .buttonContainer {
+        margin-top: var(--xLarge);
+    }
+}
+
+.toolContainer {
+    padding: 16px 32px;
+}
+
+.versionInformation {
+    margin: 20px 0;
+    flex-direction: column;
+    justify-content: flex-end;
+    display: flex;
+    flex: 1 0 auto;
+    height: fit-content;
+    font-size: 12px;
+}
+
+.appMenuHeaderLink {
+    width: 100%;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 8px 0;
+    color: var(--echoText);
+}
+
+.appMenuHeaderLink:hover {
+    text-decoration: none;
+}
+
+.appMenuContainer {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}

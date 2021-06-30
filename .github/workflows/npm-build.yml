@@ -11,7 +11,7 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [12.x]
+                node-version: [15.x]
         steps:
             - uses: actions/checkout@v1
             - name: Use Node.js ${{ matrix.node-version }}
@@ -20,7 +20,7 @@ jobs:
                   node-version: ${{ matrix.node-version }}
             - name: npm install, test and build
               run: |
-                  cd ./EchoFramework
+                  cd ./packages/EchoFramework
                   npm install
                   npm run echo-test
                   npm run build
