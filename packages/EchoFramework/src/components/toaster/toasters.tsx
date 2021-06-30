@@ -1,3 +1,4 @@
+import { EchoEvents, useEventSubscriber } from '@equinor/echo-core';
 import React, { useState } from 'react';
 import Toast from '../../components/toaster/toaster';
 import { ToasterEvent } from '../../types/toasterEvent';
@@ -38,7 +39,7 @@ export const Toasters: React.FC = () => {
         setCount(count + 1);
     };
 
-    // useEventSubscriber<ToasterEvent>(EchoEvents.Toaster, handleEvent);
+    useEventSubscriber<ToasterEvent>(EchoEvents.Toaster, handleEvent);
 
     return (
         <section className={`toasters ${style.toastersSection}`}>
