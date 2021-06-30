@@ -1,5 +1,5 @@
 import { Plant } from '@equinor/echo-core';
-import { arraysIsEqual } from '@equinor/echo-utils';
+import EchoUtils from '@equinor/echo-utils';
 
 /**
  * Function for comparing our local plant list with the API plant list.
@@ -12,7 +12,11 @@ export const checkIsPlantsListUpdated = (
     apiPlants: ReadonlyArray<Plant>,
     localStoragePlants: ReadonlyArray<Plant>
 ): boolean => {
-    if (!localStoragePlants || localStoragePlants.length === 0 || !arraysIsEqual(localStoragePlants, apiPlants)) {
+    if (
+        !localStoragePlants ||
+        localStoragePlants.length === 0 ||
+        !EchoUtils.Utils.arraysIsEqual(localStoragePlants, apiPlants)
+    ) {
         return true;
     } else {
         return false;

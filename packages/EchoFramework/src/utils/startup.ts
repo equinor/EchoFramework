@@ -1,5 +1,5 @@
 import { getPlants, Plant, setPlantsData } from '@equinor/echo-core';
-import { fireAndForget } from '@equinor/echo-utils';
+import EchoUtils from '@equinor/echo-utils';
 import { getPlantsFromApi } from '../services/api/api-plants';
 import { checkIsPlantsListUpdated } from './plantsDataUtils';
 
@@ -24,6 +24,6 @@ async function updatePlants(): Promise<void> {
  */
 export async function startup(): Promise<void> {
     if (navigator.onLine) {
-        fireAndForget(updatePlants);
+        EchoUtils.Utils.fireAndForget(updatePlants);
     }
 }
